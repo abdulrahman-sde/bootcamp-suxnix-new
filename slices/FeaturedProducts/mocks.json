@@ -1,0 +1,107 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"features_tagline": {
+				"__TYPE__": "FieldContent",
+				"value": "number",
+				"type": "Text"
+			},
+			"features_product_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "drive",
+				"type": "Text"
+			},
+			"product_card": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"chip",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "boat",
+									"type": "Text"
+								}
+							],
+							[
+								"product_image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+										"width": 3424,
+										"height": 3424
+									},
+									"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+									"width": 3424,
+									"height": 3424,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "naturally",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"category",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "chart",
+									"type": "Text"
+								}
+							],
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "belt",
+									"type": "Text"
+								}
+							],
+							[
+								"old_price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "74",
+									"type": "Number"
+								}
+							],
+							[
+								"new_price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "77",
+									"type": "Number"
+								}
+							],
+							[
+								"product_detail_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "092148c7-a446-401e-b135-e3f4b90807c7",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "drop"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

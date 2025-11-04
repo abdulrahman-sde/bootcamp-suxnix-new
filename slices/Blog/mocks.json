@@ -1,0 +1,139 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"blogs": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"blog_cover",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+										"width": 4016,
+										"height": 6016
+									},
+									"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+									"width": 4016,
+									"height": 6016,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "diagram",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"category",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "race",
+									"type": "Text"
+								}
+							],
+							[
+								"viewa",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "horse",
+									"type": "Text"
+								}
+							],
+							[
+								"comments",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "appropriate",
+									"type": "Text"
+								}
+							],
+							[
+								"date",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2016-12-11"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "clock",
+									"type": "Text"
+								}
+							],
+							[
+								"author_image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+										"width": 4272,
+										"height": 2848
+									},
+									"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+									"width": 4272,
+									"height": 2848,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "weight",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"author_name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "studied",
+									"type": "Text"
+								}
+							],
+							[
+								"read_more",
+								{
+									"key": "c3b1d828-ff87-44f0-a175-345114c97154",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "understanding"
+									}
+								}
+							],
+							[
+								"blog_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "dream",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

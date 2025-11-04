@@ -1,0 +1,104 @@
+{
+  "id": "blog",
+  "type": "SharedSlice",
+  "name": "Blog",
+  "description": "Blog",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "blogs": {
+          "type": "Group",
+          "config": {
+            "label": "Blogs",
+            "repeat": true,
+            "fields": {
+              "blog_cover": {
+                "type": "Image",
+                "config": {
+                  "label": "Blog Cover",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "category": {
+                "type": "Text",
+                "config": {
+                  "label": "Category",
+                  "placeholder": ""
+                }
+              },
+              "blog_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Blog Title",
+                  "placeholder": ""
+                }
+              },
+              "viewa": {
+                "type": "Text",
+                "config": {
+                  "label": "Views",
+                  "placeholder": ""
+                }
+              },
+              "comments": {
+                "type": "Text",
+                "config": {
+                  "label": "Comments",
+                  "placeholder": ""
+                }
+              },
+              "date": {
+                "type": "Date",
+                "config": {
+                  "label": "Date",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "author_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Author Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "author_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Author Name",
+                  "placeholder": ""
+                }
+              },
+              "read_more": {
+                "type": "Link",
+                "config": {
+                  "label": "Read More",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

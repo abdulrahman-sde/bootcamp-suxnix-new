@@ -1,0 +1,125 @@
+{
+  "id": "offers",
+  "type": "SharedSlice",
+  "name": "Offers",
+  "description": "Offers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        },
+        "offers_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Offers Heading",
+            "placeholder": ""
+          }
+        },
+        "offer_card": {
+          "type": "Group",
+          "config": {
+            "label": "Offer Card",
+            "repeat": true,
+            "fields": {
+              "offer_exclusivity": {
+                "type": "Text",
+                "config": {
+                  "label": "Offer Exclusivity",
+                  "placeholder": ""
+                }
+              },
+              "bottle_units": {
+                "type": "Text",
+                "config": {
+                  "label": "Bottle Units",
+                  "placeholder": ""
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "bottle_caps": {
+                "type": "Text",
+                "config": {
+                  "label": "Bottle Caps",
+                  "placeholder": ""
+                }
+              },
+              "product_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "price": {
+                "type": "Number",
+                "config": {
+                  "label": "Price",
+                  "placeholder": ""
+                }
+              },
+              "total_price": {
+                "type": "Number",
+                "config": {
+                  "label": "Total Price",
+                  "placeholder": ""
+                }
+              },
+              "save": {
+                "type": "Text",
+                "config": {
+                  "label": "Save",
+                  "placeholder": ""
+                }
+              },
+              "free_shipping": {
+                "type": "Text",
+                "config": {
+                  "label": "Free Shipping",
+                  "placeholder": ""
+                }
+              },
+              "buy_now_button": {
+                "type": "Link",
+                "config": {
+                  "label": "Buy Now Button",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "brand_logos": {
+                "type": "Image",
+                "config": {
+                  "label": "Brand Logos",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

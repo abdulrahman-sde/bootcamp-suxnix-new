@@ -1,0 +1,96 @@
+{
+  "id": "featured_products",
+  "type": "SharedSlice",
+  "name": "FeaturedProducts",
+  "description": "FeaturedProducts",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "features_tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Features Tagline",
+            "placeholder": ""
+          }
+        },
+        "features_product_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Features Product Heading",
+            "placeholder": ""
+          }
+        },
+        "product_card": {
+          "type": "Group",
+          "config": {
+            "label": "Product Card",
+            "repeat": true,
+            "fields": {
+              "chip": {
+                "type": "Text",
+                "config": {
+                  "label": "Chip",
+                  "placeholder": ""
+                }
+              },
+              "product_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "category": {
+                "type": "Text",
+                "config": {
+                  "label": "Category",
+                  "placeholder": ""
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "old_price": {
+                "type": "Number",
+                "config": {
+                  "label": "Old Price",
+                  "placeholder": ""
+                }
+              },
+              "new_price": {
+                "type": "Number",
+                "config": {
+                  "label": "New Price",
+                  "placeholder": ""
+                }
+              },
+              "product_detail_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Product Detail Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
