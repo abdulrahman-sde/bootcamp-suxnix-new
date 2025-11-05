@@ -1,0 +1,84 @@
+{
+  "id": "why_choose_us",
+  "type": "SharedSlice",
+  "name": "WhyChooseUs",
+  "description": "WhyChooseUs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "top_reshaper": {
+          "type": "Image",
+          "config": {
+            "label": "Top Reshaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "befen": {
+          "type": "Group",
+          "config": {
+            "label": "Benefits",
+            "repeat": true,
+            "fields": {
+              "benefit": {
+                "type": "Text",
+                "config": {
+                  "label": "Benefit",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "know_more": {
+          "type": "Link",
+          "config": {
+            "label": "Know More",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_shaper": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Shaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

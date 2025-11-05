@@ -1,0 +1,97 @@
+{
+  "id": "shop_products",
+  "type": "SharedSlice",
+  "name": "ShopProducts",
+  "description": "ShopProducts",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "products": {
+          "type": "Group",
+          "config": {
+            "label": "Products",
+            "repeat": true,
+            "fields": {
+              "chip": {
+                "type": "Text",
+                "config": {
+                  "label": "Chip",
+                  "placeholder": ""
+                }
+              },
+              "product_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "category": {
+                "type": "Text",
+                "config": {
+                  "label": "Category",
+                  "placeholder": ""
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "price": {
+                "type": "Number",
+                "config": {
+                  "label": "Price",
+                  "placeholder": ""
+                }
+              },
+              "rating": {
+                "type": "Number",
+                "config": {
+                  "label": "Rating",
+                  "placeholder": ""
+                }
+              },
+              "reviews": {
+                "type": "Number",
+                "config": {
+                  "label": "Reviews",
+                  "placeholder": ""
+                }
+              },
+              "cart_icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Cart Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "product_detail_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Product Detail Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

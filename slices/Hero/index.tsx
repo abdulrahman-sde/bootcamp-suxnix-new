@@ -2,16 +2,18 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import Navbar from "@/componnets/Navbar";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 const Hero: FC<HeroProps> = ({ slice }) => {
   return (
     <>
+      <Navbar component={"landing_hero"} />
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mt-30 w-full overflow-hidden"
+        className="relative w-full overflow-hidden"
         style={{
           backgroundImage: `url(${slice.primary.background?.url})`,
           backgroundAttachment: "fixed",
@@ -37,7 +39,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         )}
 
         {/* Hero Content */}
-        <div className="relative z-10 mx-auto flex max-w-[1320px] flex-col items-center justify-between px-4 text-white md:flex-row md:py-50 lg:px-0">
+        <div className="relative z-10 mx-auto mt-20 flex max-w-[1320px] flex-col items-center justify-between px-4 text-white md:mt-0 md:flex-row md:py-50 lg:px-0">
           {/* Left Text */}
           <div className="flex max-w-xl flex-col items-start text-left">
             <p className="mb-3 text-lg font-semibold tracking-tight text-white/90 uppercase">
@@ -82,7 +84,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
       {/* Cards Section */}
       {slice.primary.hero_cards && slice.primary.hero_cards.length > 0 && (
-        <div className="relative top-[-120px] z-20 w-full px-4 pb-20">
+        <div className="relative top-[-120px] z-20 mt-20 w-full px-6 pb-20 md:mt-0">
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-6 md:grid-cols-3">
             {slice.primary.hero_cards.map((item, i) => (
               <div

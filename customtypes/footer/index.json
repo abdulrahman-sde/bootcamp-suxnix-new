@@ -1,0 +1,174 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "top_reshaper": {
+        "type": "Image",
+        "config": {
+          "label": "Top Reshaper",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "brand_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Brand Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "brand_motive": {
+        "type": "Text",
+        "config": {
+          "label": "Brand Motive",
+          "placeholder": ""
+        }
+      },
+      "social_links": {
+        "type": "Group",
+        "config": {
+          "label": "Social Links",
+          "repeat": true,
+          "fields": {
+            "social_icon": {
+              "type": "Image",
+              "config": {
+                "label": "Social Icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "social_link": {
+              "type": "Link",
+              "config": {
+                "label": "Social Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "about_us": {
+        "type": "Text",
+        "config": {
+          "label": "About Us ",
+          "placeholder": ""
+        }
+      },
+      "about_us_links": {
+        "type": "Group",
+        "config": {
+          "label": "About Us Links",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "support": {
+        "type": "Text",
+        "config": {
+          "label": "Support",
+          "placeholder": ""
+        }
+      },
+      "support_links": {
+        "type": "Group",
+        "config": {
+          "label": "Support Links",
+          "repeat": true,
+          "fields": {
+            "support_link": {
+              "type": "Link",
+              "config": {
+                "label": "Support Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "contact_us": {
+        "type": "Text",
+        "config": {
+          "label": "Contact US",
+          "placeholder": ""
+        }
+      },
+      "contact_us_links": {
+        "type": "Group",
+        "config": {
+          "label": "Contact US links",
+          "repeat": true,
+          "fields": {
+            "contact_us_link": {
+              "type": "Link",
+              "config": {
+                "label": "Contact US link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "leaves_1": {
+        "type": "Image",
+        "config": {
+          "label": "Leaves 1",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "leaves_2": {
+        "type": "Image",
+        "config": {
+          "label": "Leaves 2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "copyright": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright",
+          "placeholder": ""
+        }
+      },
+      "payments": {
+        "type": "Image",
+        "config": {
+          "label": "Payments",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

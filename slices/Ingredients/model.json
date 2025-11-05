@@ -1,0 +1,102 @@
+{
+  "id": "ingredients",
+  "type": "SharedSlice",
+  "name": "Ingredients",
+  "description": "Ingredients",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "charts": {
+          "type": "Group",
+          "config": {
+            "label": "Charts",
+            "repeat": true,
+            "fields": {
+              "percentage": {
+                "type": "Number",
+                "config": {
+                  "label": "Percentage",
+                  "placeholder": ""
+                }
+              },
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": ""
+                }
+              },
+              "sub_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Sub Heading",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "product_image": {
+          "type": "Image",
+          "config": {
+            "label": "Product Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "ingredient_1": {
+          "type": "Group",
+          "config": {
+            "label": "Ingredients",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": ""
+                }
+              },
+              "sub_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Sub Heading",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

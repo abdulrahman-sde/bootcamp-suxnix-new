@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Oswald, Roboto } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/componnets/Navbar";
+import { Suspense } from "react";
+import Footer from "@/componnets/Footer";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -27,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${oswald.variable} ${roboto.variable} antialiased`}>
         {children}
+        <Footer />
       </body>
     </html>
   );

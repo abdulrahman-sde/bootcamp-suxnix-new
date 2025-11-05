@@ -20,9 +20,13 @@ body {
   font-family: var(--font-oswald), sans-serif;
 }
 
+p,span{
+  font-family: var(--font-roboto)
+}
 @layer components {
   .btn-primary {
     @apply  font-roboto font-bold  bg-primary text-white border-white outline-none border-[3px]  rounded-[50px] py-[17px] px-[52px]  ;
   }
+
 }
 

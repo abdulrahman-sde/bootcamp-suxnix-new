@@ -1,0 +1,82 @@
+{
+  "id": "brands",
+  "type": "SharedSlice",
+  "name": "Brands",
+  "description": "Brands",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "top_reshaper": {
+          "type": "Image",
+          "config": {
+            "label": "Top Reshaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "background": {
+          "type": "Image",
+          "config": {
+            "label": "Background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_shaper": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Shaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "features": {
+          "type": "Group",
+          "config": {
+            "label": "Features",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": ""
+                }
+              },
+              "sub_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Sub Heading",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "herbal_product": {
+          "type": "Image",
+          "config": {
+            "label": "Herbal Product",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

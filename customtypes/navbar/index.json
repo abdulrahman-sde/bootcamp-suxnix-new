@@ -1,0 +1,75 @@
+{
+  "format": "custom",
+  "id": "navbar",
+  "label": "Navbar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "brand_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Brand Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "nav_links": {
+        "type": "Group",
+        "config": {
+          "label": "Nav Links",
+          "repeat": true,
+          "fields": {
+            "nav_link": {
+              "type": "Link",
+              "config": {
+                "label": "Nav Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "nav_icons": {
+        "type": "Group",
+        "config": {
+          "label": "Nav Icons",
+          "repeat": true,
+          "fields": {
+            "nav_icon": {
+              "type": "Image",
+              "config": {
+                "label": "Nav Icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "nav_icon_link": {
+              "type": "Link",
+              "config": {
+                "label": "Nav Icon Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "secondary_brand_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Secondary Brand Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

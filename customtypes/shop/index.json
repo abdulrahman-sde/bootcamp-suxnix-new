@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "feature",
-  "label": "Feature",
+  "id": "shop",
+  "label": "Shop",
   "repeatable": false,
   "status": true,
   "json": {
@@ -11,16 +11,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "why_choose_us": {
+            "shop_products": {
               "type": "SharedSlice"
             },
-            "ingredients": {
-              "type": "SharedSlice"
-            },
-            "brands": {
-              "type": "SharedSlice"
-            },
-            "feature_hero": {
+            "banner": {
               "type": "SharedSlice"
             }
           }

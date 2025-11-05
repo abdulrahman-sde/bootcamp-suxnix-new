@@ -5,8 +5,12 @@ import dynamic from "next/dynamic";
 export const components = {
   banner: dynamic(() => import("./Banner")),
   blog: dynamic(() => import("./Blog")),
+  brands: dynamic(() => import("./Brands")),
   feature_hero: dynamic(() => import("./FeatureHero")),
   featured_products: dynamic(() => import("./FeaturedProducts")),
   hero: dynamic(() => import("./Hero")),
+  ingredients: dynamic(() => import("./Ingredients")),
   offers: dynamic(() => import("./Offers")),
+  shop_products: dynamic(() => import("./ShopProducts")),
+  why_choose_us: dynamic(() => import("./WhyChooseUs")),
 };
