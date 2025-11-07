@@ -1,0 +1,105 @@
+{
+  "type": "SharedSlice",
+  "id": "profile_sidebar",
+  "name": "ProfileSidebar",
+  "variations": [
+    {
+      "id": "profile_with_search_and_feed",
+      "name": "Profile with Search and Feed",
+      "description": "Profile/about card at the top, search input in the middle, and list of popular feeds below, each with image, title, and metadata.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "profile_title": {
+          "type": "Text",
+          "config": {
+            "label": "Profile Title"
+          }
+        },
+        "profile_image": {
+          "type": "Image",
+          "config": {
+            "label": "Profile Image"
+          }
+        },
+        "profile_name": {
+          "type": "Text",
+          "config": {
+            "label": "Profile Name"
+          }
+        },
+        "profile_description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em",
+            "label": "Profile Description"
+          }
+        },
+        "profile_social_links": {
+          "type": "Link",
+          "config": {
+            "label": "Profile Social Links",
+            "allowText": false,
+            "repeat": true,
+            "variants": [
+              "facebook",
+              "twitter",
+              "pinterest",
+              "behance"
+            ],
+            "select": null
+          }
+        },
+        "search_label": {
+          "type": "Text",
+          "config": {
+            "label": "Search Label"
+          }
+        },
+        "search_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Search Placeholder"
+          }
+        },
+        "feed_items": {
+          "type": "Group",
+          "config": {
+            "label": "Feed Items",
+            "fields": {
+              "feed_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Feed Image"
+                }
+              },
+              "feed_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Feed Title"
+                }
+              },
+              "feed_date": {
+                "type": "Date",
+                "config": {
+                  "label": "Feed Date"
+                }
+              }
+            }
+          }
+        },
+        "is_blog_sidebar": {
+          "type": "Boolean",
+          "config": {
+            "label": "is blog sidebar",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

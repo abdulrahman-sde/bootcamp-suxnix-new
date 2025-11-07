@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "profile_sidebar": {
+              "type": "SharedSlice"
+            },
             "blog": {
               "type": "SharedSlice"
             },

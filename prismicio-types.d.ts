@@ -69,7 +69,10 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type BlogDocumentDataSlicesSlice = BlogSlice | BannerSlice;
+type BlogDocumentDataSlicesSlice =
+  | ProfileSidebarSlice
+  | BlogSlice
+  | BannerSlice;
 
 /**
  * Content for Blog documents
@@ -130,7 +133,441 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
+/**
+ * Item in *Blog Details → Metadata*
+ */
+export interface BlogDetailsDocumentDataMetadataItem {
+  /**
+   * Icon field in *Blog Details → Metadata*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.metadata[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Data field in *Blog Details → Metadata*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.metadata[].data
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  data: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Blog Details → Related Tags*
+ */
+export interface BlogDetailsDocumentDataRelatedTagsItem {
+  /**
+   * Tag field in *Blog Details → Related Tags*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.related_tags[].tag
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tag: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Blog Details → Social Links*
+ */
+export interface BlogDetailsDocumentDataSocialLinksItem {
+  /**
+   * Social Icon field in *Blog Details → Social Links*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.social_links[].social_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  social_icon: prismic.ImageField<never>;
+
+  /**
+   * Social Link field in *Blog Details → Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.social_links[].social_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  social_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+type BlogDetailsDocumentDataSlicesSlice = ProfileSidebarSlice | BannerSlice;
+
+/**
+ * Content for Blog Details documents
+ */
+interface BlogDetailsDocumentData {
+  /**
+   * Blog Cover field in *Blog Details*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.blog_cover
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  blog_cover: prismic.ImageField<never>;
+
+  /**
+   * Category field in *Blog Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Title field in *Blog Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Metadata field in *Blog Details*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.metadata[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  metadata: prismic.GroupField<Simplify<BlogDetailsDocumentDataMetadataItem>>;
+
+  /**
+   * Content field in *Blog Details*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Related Tags Heading field in *Blog Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.related_tags_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  related_tags_heading: prismic.KeyTextField;
+
+  /**
+   * Related Tags field in *Blog Details*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.related_tags[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  related_tags: prismic.GroupField<
+    Simplify<BlogDetailsDocumentDataRelatedTagsItem>
+  >;
+
+  /**
+   * Social Share Heading field in *Blog Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.social_share_heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  social_share_heading: prismic.KeyTextField;
+
+  /**
+   * Social Links field in *Blog Details*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_links: prismic.GroupField<
+    Simplify<BlogDetailsDocumentDataSocialLinksItem>
+  >;
+
+  /**
+   * Slice Zone field in *Blog Details*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogDetailsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_details.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_details.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Details*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_details.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog Details document from Prismic
+ *
+ * - **API ID**: `blog_details`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDetailsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BlogDetailsDocumentData>,
+    "blog_details",
+    Lang
+  >;
+
+type CartDocumentDataSlicesSlice = BannerSlice;
+
+/**
+ * Content for Cart documents
+ */
+interface CartDocumentData {
+  /**
+   * Slice Zone field in *Cart*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cart.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<CartDocumentDataSlicesSlice> /**
+   * Meta Title field in *Cart*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: cart.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Cart*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: cart.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Cart*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cart.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Cart document from Prismic
+ *
+ * - **API ID**: `cart`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CartDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<CartDocumentData>, "cart", Lang>;
+
+type CheckoutDocumentDataSlicesSlice = BannerSlice | CheckoutForm2Slice;
+
+/**
+ * Content for Checkout documents
+ */
+interface CheckoutDocumentData {
+  /**
+   * Slice Zone field in *Checkout*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<CheckoutDocumentDataSlicesSlice> /**
+   * Meta Title field in *Checkout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: checkout.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Checkout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: checkout.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Checkout*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Checkout document from Prismic
+ *
+ * - **API ID**: `checkout`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CheckoutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CheckoutDocumentData>,
+    "checkout",
+    Lang
+  >;
+
+type ContactUsDocumentDataSlicesSlice =
+  | ContactFormWithMapSlice
+  | ContactInfoGridSlice
+  | BannerSlice;
+
+/**
+ * Content for Contact Us documents
+ */
+interface ContactUsDocumentData {
+  /**
+   * Slice Zone field in *Contact Us*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ContactUsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Contact Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: contact_us.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Contact Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: contact_us.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Contact Us*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_us.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Contact Us document from Prismic
+ *
+ * - **API ID**: `contact_us`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactUsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ContactUsDocumentData>,
+    "contact_us",
+    Lang
+  >;
+
 type FeatureDocumentDataSlicesSlice =
+  | LogoRowSlice
   | WhyChooseUsSlice
   | IngredientsSlice
   | BrandsSlice
@@ -968,12 +1405,128 @@ export type ShopDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BlogDocument
+  | BlogDetailsDocument
+  | CartDocument
+  | CheckoutDocument
+  | ContactUsDocument
   | FeatureDocument
   | FooterDocument
   | LandingDocument
   | NavbarDocument
   | ProductDetailsDocument
   | ShopDocument;
+
+/**
+ * Item in *ArticleDetail → Default → Primary → Metadata*
+ */
+export interface ArticleDetailSliceDefaultPrimaryMetaInfoItem {
+  /**
+   * Meta Label field in *ArticleDetail → Default → Primary → Metadata*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_detail.default.primary.meta_info[].meta_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_label: prismic.KeyTextField;
+
+  /**
+   * Meta Value field in *ArticleDetail → Default → Primary → Metadata*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_detail.default.primary.meta_info[].meta_value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_value: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ArticleDetail → Default → Primary*
+ */
+export interface ArticleDetailSliceDefaultPrimary {
+  /**
+   * Hero Image field in *ArticleDetail → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_detail.default.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * Category field in *ArticleDetail → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_detail.default.primary.category
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Title field in *ArticleDetail → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_detail.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Metadata field in *ArticleDetail → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_detail.default.primary.meta_info[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  meta_info: prismic.GroupField<
+    Simplify<ArticleDetailSliceDefaultPrimaryMetaInfoItem>
+  >;
+
+  /**
+   * Content field in *ArticleDetail → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article_detail.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ArticleDetail Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard article detail layout with hero image, metadata, main content, section images, and supporting text blocks.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ArticleDetailSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ArticleDetailSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ArticleDetail*
+ */
+type ArticleDetailSliceVariation = ArticleDetailSliceDefault;
+
+/**
+ * ArticleDetail Shared Slice
+ *
+ * - **API ID**: `article_detail`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ArticleDetailSlice = prismic.SharedSlice<
+  "article_detail",
+  ArticleDetailSliceVariation
+>;
 
 /**
  * Primary content in *Banner → Default → Primary*
@@ -1211,11 +1764,11 @@ type BlogSliceVariation = BlogSliceDefault;
 export type BlogSlice = prismic.SharedSlice<"blog", BlogSliceVariation>;
 
 /**
- * Item in *Brands → Default → Primary → Features*
+ * Item in *Brands → Features → Primary → Features*
  */
 export interface BrandsSliceDefaultPrimaryFeaturesItem {
   /**
-   * Icon field in *Brands → Default → Primary → Features*
+   * Icon field in *Brands → Features → Primary → Features*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1225,7 +1778,7 @@ export interface BrandsSliceDefaultPrimaryFeaturesItem {
   icon: prismic.ImageField<never>;
 
   /**
-   * Heading field in *Brands → Default → Primary → Features*
+   * Heading field in *Brands → Features → Primary → Features*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1235,7 +1788,7 @@ export interface BrandsSliceDefaultPrimaryFeaturesItem {
   heading: prismic.KeyTextField;
 
   /**
-   * Sub Heading field in *Brands → Default → Primary → Features*
+   * Sub Heading field in *Brands → Features → Primary → Features*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1246,11 +1799,11 @@ export interface BrandsSliceDefaultPrimaryFeaturesItem {
 }
 
 /**
- * Primary content in *Brands → Default → Primary*
+ * Primary content in *Brands → Features → Primary*
  */
 export interface BrandsSliceDefaultPrimary {
   /**
-   * Top Reshaper field in *Brands → Default → Primary*
+   * Top Reshaper field in *Brands → Features → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1260,7 +1813,7 @@ export interface BrandsSliceDefaultPrimary {
   top_reshaper: prismic.ImageField<never>;
 
   /**
-   * Background field in *Brands → Default → Primary*
+   * Background field in *Brands → Features → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1270,7 +1823,7 @@ export interface BrandsSliceDefaultPrimary {
   background: prismic.ImageField<never>;
 
   /**
-   * Bottom Shaper field in *Brands → Default → Primary*
+   * Bottom Shaper field in *Brands → Features → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1280,7 +1833,7 @@ export interface BrandsSliceDefaultPrimary {
   bottom_shaper: prismic.ImageField<never>;
 
   /**
-   * Features field in *Brands → Default → Primary*
+   * Features field in *Brands → Features → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -1290,7 +1843,7 @@ export interface BrandsSliceDefaultPrimary {
   features: prismic.GroupField<Simplify<BrandsSliceDefaultPrimaryFeaturesItem>>;
 
   /**
-   * Herbal Product field in *Brands → Default → Primary*
+   * Herbal Product field in *Brands → Features → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1301,7 +1854,7 @@ export interface BrandsSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Brands Slice
+ * Features variation for Brands Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -1326,6 +1879,363 @@ type BrandsSliceVariation = BrandsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type BrandsSlice = prismic.SharedSlice<"brands", BrandsSliceVariation>;
+
+/**
+ * Item in *CheckoutForm → Billing and Additional Information Form → Primary → Fields*
+ */
+export interface CheckoutForm2SliceBillingWithAdditionalInfoPrimaryFieldsItem {
+  /**
+   * Field Label field in *CheckoutForm → Billing and Additional Information Form → Primary → Fields*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.fields[].field_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  field_label: prismic.KeyTextField;
+
+  /**
+   * Field Type field in *CheckoutForm → Billing and Additional Information Form → Primary → Fields*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.fields[].type
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  type: prismic.KeyTextField;
+
+  /**
+   * Required field in *CheckoutForm → Billing and Additional Information Form → Primary → Fields*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.fields[].required
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  required: prismic.BooleanField;
+
+  /**
+   * Placeholder field in *CheckoutForm → Billing and Additional Information Form → Primary → Fields*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.fields[].placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  placeholder: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *CheckoutForm → Billing and Additional Information Form → Primary*
+ */
+export interface CheckoutForm2SliceBillingWithAdditionalInfoPrimary {
+  /**
+   * Billing Detail Heading field in *CheckoutForm → Billing and Additional Information Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.billing_detail_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  billing_detail_heading: prismic.KeyTextField;
+
+  /**
+   * Fields field in *CheckoutForm → Billing and Additional Information Form → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.fields[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  fields: prismic.GroupField<
+    Simplify<CheckoutForm2SliceBillingWithAdditionalInfoPrimaryFieldsItem>
+  >;
+
+  /**
+   * Additional Info Heading field in *CheckoutForm → Billing and Additional Information Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.additional_info_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  additional_info_heading: prismic.KeyTextField;
+
+  /**
+   * Label field in *CheckoutForm → Billing and Additional Information Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Placeholder field in *CheckoutForm → Billing and Additional Information Form → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: checkout_form_2.billing_with_additional_info.primary.placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  placeholder: prismic.KeyTextField;
+}
+
+/**
+ * Billing and Additional Information Form variation for CheckoutForm Slice
+ *
+ * - **API ID**: `billing_with_additional_info`
+ * - **Description**: A checkout form variation with fields for billing details and a section for additional information such as order notes.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CheckoutForm2SliceBillingWithAdditionalInfo =
+  prismic.SharedSliceVariation<
+    "billing_with_additional_info",
+    Simplify<CheckoutForm2SliceBillingWithAdditionalInfoPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *CheckoutForm*
+ */
+type CheckoutForm2SliceVariation = CheckoutForm2SliceBillingWithAdditionalInfo;
+
+/**
+ * CheckoutForm Shared Slice
+ *
+ * - **API ID**: `checkout_form_2`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CheckoutForm2Slice = prismic.SharedSlice<
+  "checkout_form_2",
+  CheckoutForm2SliceVariation
+>;
+
+/**
+ * Item in *ContactFormWithMap → Default → Primary → Subject Options*
+ */
+export interface ContactFormWithMapSliceDefaultPrimarySubjectOptionsItem {
+  /**
+   * Option field in *ContactFormWithMap → Default → Primary → Subject Options*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.subject_options[].subject_option
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subject_option: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ContactFormWithMap → Default → Primary*
+ */
+export interface ContactFormWithMapSliceDefaultPrimary {
+  /**
+   * Map Link field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.map_link
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  map_link: prismic.KeyTextField;
+
+  /**
+   * Full Name Label field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.full_name_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  full_name_label: prismic.KeyTextField;
+
+  /**
+   * Email Address Label field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.email_address_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email_address_label: prismic.KeyTextField;
+
+  /**
+   * Subject Label field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.subject_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subject_label: prismic.KeyTextField;
+
+  /**
+   * Subject Options field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.subject_options[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  subject_options: prismic.GroupField<
+    Simplify<ContactFormWithMapSliceDefaultPrimarySubjectOptionsItem>
+  >;
+
+  /**
+   * Message Label field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.message_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  message_label: prismic.KeyTextField;
+
+  /**
+   * Button Text field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Heading field in *ContactFormWithMap → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_with_map.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactFormWithMap Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard layout: map/embedded media left, contact form right.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormWithMapSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactFormWithMapSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactFormWithMap*
+ */
+type ContactFormWithMapSliceVariation = ContactFormWithMapSliceDefault;
+
+/**
+ * ContactFormWithMap Shared Slice
+ *
+ * - **API ID**: `contact_form_with_map`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormWithMapSlice = prismic.SharedSlice<
+  "contact_form_with_map",
+  ContactFormWithMapSliceVariation
+>;
+
+/**
+ * Item in *ContactInfoGrid → Default → Primary → Contact Items*
+ */
+export interface ContactInfoGridSliceDefaultPrimaryItemsItem {
+  /**
+   * Icon field in *ContactInfoGrid → Default → Primary → Contact Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info_grid.default.primary.items[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ContactInfoGrid → Default → Primary → Contact Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info_grid.default.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Details field in *ContactInfoGrid → Default → Primary → Contact Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info_grid.default.primary.items[].details
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  details: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ContactInfoGrid → Default → Primary*
+ */
+export interface ContactInfoGridSliceDefaultPrimary {
+  /**
+   * Contact Items field in *ContactInfoGrid → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info_grid.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  items: prismic.GroupField<
+    Simplify<ContactInfoGridSliceDefaultPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Default variation for ContactInfoGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Each item is a contact info card with icon, title, and one or more lines of content.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactInfoGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactInfoGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactInfoGrid*
+ */
+type ContactInfoGridSliceVariation = ContactInfoGridSliceDefault;
+
+/**
+ * ContactInfoGrid Shared Slice
+ *
+ * - **API ID**: `contact_info_grid`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactInfoGridSlice = prismic.SharedSlice<
+  "contact_info_grid",
+  ContactInfoGridSliceVariation
+>;
 
 /**
  * Primary content in *FeatureHero → Default → Primary*
@@ -1935,6 +2845,76 @@ export type IngredientsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *LogoRow → Default → Primary → Logos*
+ */
+export interface LogoRowSliceDefaultPrimaryLogosItem {
+  /**
+   * Logo field in *LogoRow → Default → Primary → Logos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logo_row.default.primary.logos[].logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *LogoRow → Default → Primary*
+ */
+export interface LogoRowSliceDefaultPrimary {
+  /**
+   * Logos field in *LogoRow → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logo_row.default.primary.logos[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  logos: prismic.GroupField<Simplify<LogoRowSliceDefaultPrimaryLogosItem>>;
+
+  /**
+   * Heading field in *LogoRow → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logo_row.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for LogoRow Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Main variation with optional heading and a group of logos.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LogoRowSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LogoRowSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LogoRow*
+ */
+type LogoRowSliceVariation = LogoRowSliceDefault;
+
+/**
+ * LogoRow Shared Slice
+ *
+ * - **API ID**: `logo_row`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LogoRowSlice = prismic.SharedSlice<
+  "logo_row",
+  LogoRowSliceVariation
+>;
+
+/**
  * Item in *Offers → Default → Primary → Offer Card*
  */
 export interface OffersSliceDefaultPrimaryOfferCardItem {
@@ -2120,9 +3100,191 @@ type OffersSliceVariation = OffersSliceDefault;
 export type OffersSlice = prismic.SharedSlice<"offers", OffersSliceVariation>;
 
 /**
+ * Item in *ProfileSidebar → Profile with Search and Feed → Primary → Feed Items*
+ */
+export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem {
+  /**
+   * Feed Image field in *ProfileSidebar → Profile with Search and Feed → Primary → Feed Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.feed_items[].feed_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  feed_image: prismic.ImageField<never>;
+
+  /**
+   * Feed Title field in *ProfileSidebar → Profile with Search and Feed → Primary → Feed Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.feed_items[].feed_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  feed_title: prismic.KeyTextField;
+
+  /**
+   * Feed Date field in *ProfileSidebar → Profile with Search and Feed → Primary → Feed Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.feed_items[].feed_date
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  feed_date: prismic.DateField;
+}
+
+/**
+ * Primary content in *ProfileSidebar → Profile with Search and Feed → Primary*
+ */
+export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimary {
+  /**
+   * Profile Title field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.profile_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  profile_title: prismic.KeyTextField;
+
+  /**
+   * Profile Image field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.profile_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  profile_image: prismic.ImageField<never>;
+
+  /**
+   * Profile Name field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.profile_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  profile_name: prismic.KeyTextField;
+
+  /**
+   * Profile Description field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.profile_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  profile_description: prismic.RichTextField;
+
+  /**
+   * Profile Social Links field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.profile_social_links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  profile_social_links: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "facebook" | "twitter" | "pinterest" | "behance"
+    >
+  >;
+
+  /**
+   * Search Label field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.search_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  search_label: prismic.KeyTextField;
+
+  /**
+   * Search Placeholder field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.search_placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  search_placeholder: prismic.KeyTextField;
+
+  /**
+   * Feed Items field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.feed_items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  feed_items: prismic.GroupField<
+    Simplify<ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem>
+  >;
+
+  /**
+   * is blog sidebar field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.is_blog_sidebar
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  is_blog_sidebar: prismic.BooleanField;
+}
+
+/**
+ * Profile with Search and Feed variation for ProfileSidebar Slice
+ *
+ * - **API ID**: `profile_with_search_and_feed`
+ * - **Description**: Profile/about card at the top, search input in the middle, and list of popular feeds below, each with image, title, and metadata.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProfileSidebarSliceProfileWithSearchAndFeed =
+  prismic.SharedSliceVariation<
+    "profile_with_search_and_feed",
+    Simplify<ProfileSidebarSliceProfileWithSearchAndFeedPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *ProfileSidebar*
+ */
+type ProfileSidebarSliceVariation = ProfileSidebarSliceProfileWithSearchAndFeed;
+
+/**
+ * ProfileSidebar Shared Slice
+ *
+ * - **API ID**: `profile_sidebar`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProfileSidebarSlice = prismic.SharedSlice<
+  "profile_sidebar",
+  ProfileSidebarSliceVariation
+>;
+
+/**
  * Item in *ShopProducts → Default → Primary → Products*
  */
 export interface ShopProductsSliceDefaultPrimaryProductsItem {
+  /**
+   * Product Id field in *ShopProducts → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_products.default.primary.products[].product_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_id: prismic.KeyTextField;
+
   /**
    * Chip field in *ShopProducts → Default → Primary → Products*
    *
@@ -2265,6 +3427,232 @@ type ShopProductsSliceVariation = ShopProductsSliceDefault;
 export type ShopProductsSlice = prismic.SharedSlice<
   "shop_products",
   ShopProductsSliceVariation
+>;
+
+/**
+ * Item in *SidebarWidgets → Default → Primary → Widgets*
+ */
+export interface SidebarWidgetsSliceDefaultPrimaryWidgetsItem {
+  /**
+   * Widget Type field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].widget_type
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  widget_type: prismic.SelectField<
+    "Profile" | "Search" | "PopularFeeds" | "Categories"
+  >;
+
+  /**
+   * Heading field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Profile Image field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].profile_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  profile_image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Description field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Social Links field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].social_links
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  social_links: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Search Placeholder field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].search_placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  search_placeholder: prismic.KeyTextField;
+
+  /**
+   * Search Button Text field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].search_button_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  search_button_text: prismic.KeyTextField;
+
+  /**
+   * Feed Date Label field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].feed_date_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  feed_date_label: prismic.KeyTextField;
+
+  /**
+   * Category Label field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].category_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category_label: prismic.KeyTextField;
+
+  /**
+   * Category Count Label field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].category_count_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category_count_label: prismic.KeyTextField;
+
+  /**
+   * Category Name field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].category_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category_name: prismic.KeyTextField;
+
+  /**
+   * Category Count field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].category_count
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  category_count: prismic.NumberField;
+
+  /**
+   * Feed Image field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].feed_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  feed_image: prismic.ImageField<never>;
+
+  /**
+   * Feed Title field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].feed_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  feed_title: prismic.KeyTextField;
+
+  /**
+   * Feed Title Rich field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].feed_title_rich
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  feed_title_rich: prismic.RichTextField;
+
+  /**
+   * Feed Date field in *SidebarWidgets → Default → Primary → Widgets*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[].feed_date
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  feed_date: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *SidebarWidgets → Default → Primary*
+ */
+export interface SidebarWidgetsSliceDefaultPrimary {
+  /**
+   * Widgets field in *SidebarWidgets → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sidebar_widgets.default.primary.widgets[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  widgets: prismic.GroupField<
+    Simplify<SidebarWidgetsSliceDefaultPrimaryWidgetsItem>
+  >;
+}
+
+/**
+ * Default variation for SidebarWidgets Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard variation to build a sidebar with stackable widgets for profile, search, feeds, and categories. Widgets can repeat and re-order as required.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SidebarWidgetsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SidebarWidgetsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SidebarWidgets*
+ */
+type SidebarWidgetsSliceVariation = SidebarWidgetsSliceDefault;
+
+/**
+ * SidebarWidgets Shared Slice
+ *
+ * - **API ID**: `sidebar_widgets`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SidebarWidgetsSlice = prismic.SharedSlice<
+  "sidebar_widgets",
+  SidebarWidgetsSliceVariation
 >;
 
 /**
@@ -2417,6 +3805,21 @@ declare module "@prismicio/client" {
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
+      BlogDetailsDocument,
+      BlogDetailsDocumentData,
+      BlogDetailsDocumentDataMetadataItem,
+      BlogDetailsDocumentDataRelatedTagsItem,
+      BlogDetailsDocumentDataSocialLinksItem,
+      BlogDetailsDocumentDataSlicesSlice,
+      CartDocument,
+      CartDocumentData,
+      CartDocumentDataSlicesSlice,
+      CheckoutDocument,
+      CheckoutDocumentData,
+      CheckoutDocumentDataSlicesSlice,
+      ContactUsDocument,
+      ContactUsDocumentData,
+      ContactUsDocumentDataSlicesSlice,
       FeatureDocument,
       FeatureDocumentData,
       FeatureDocumentDataSlicesSlice,
@@ -2444,6 +3847,11 @@ declare module "@prismicio/client" {
       ShopDocumentData,
       ShopDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ArticleDetailSlice,
+      ArticleDetailSliceDefaultPrimaryMetaInfoItem,
+      ArticleDetailSliceDefaultPrimary,
+      ArticleDetailSliceVariation,
+      ArticleDetailSliceDefault,
       BannerSlice,
       BannerSliceDefaultPrimary,
       BannerSliceVariation,
@@ -2458,6 +3866,21 @@ declare module "@prismicio/client" {
       BrandsSliceDefaultPrimary,
       BrandsSliceVariation,
       BrandsSliceDefault,
+      CheckoutForm2Slice,
+      CheckoutForm2SliceBillingWithAdditionalInfoPrimaryFieldsItem,
+      CheckoutForm2SliceBillingWithAdditionalInfoPrimary,
+      CheckoutForm2SliceVariation,
+      CheckoutForm2SliceBillingWithAdditionalInfo,
+      ContactFormWithMapSlice,
+      ContactFormWithMapSliceDefaultPrimarySubjectOptionsItem,
+      ContactFormWithMapSliceDefaultPrimary,
+      ContactFormWithMapSliceVariation,
+      ContactFormWithMapSliceDefault,
+      ContactInfoGridSlice,
+      ContactInfoGridSliceDefaultPrimaryItemsItem,
+      ContactInfoGridSliceDefaultPrimary,
+      ContactInfoGridSliceVariation,
+      ContactInfoGridSliceDefault,
       FeatureHeroSlice,
       FeatureHeroSliceDefaultPrimary,
       FeatureHeroSliceVariation,
@@ -2478,16 +3901,31 @@ declare module "@prismicio/client" {
       IngredientsSliceDefaultPrimary,
       IngredientsSliceVariation,
       IngredientsSliceDefault,
+      LogoRowSlice,
+      LogoRowSliceDefaultPrimaryLogosItem,
+      LogoRowSliceDefaultPrimary,
+      LogoRowSliceVariation,
+      LogoRowSliceDefault,
       OffersSlice,
       OffersSliceDefaultPrimaryOfferCardItem,
       OffersSliceDefaultPrimary,
       OffersSliceVariation,
       OffersSliceDefault,
+      ProfileSidebarSlice,
+      ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem,
+      ProfileSidebarSliceProfileWithSearchAndFeedPrimary,
+      ProfileSidebarSliceVariation,
+      ProfileSidebarSliceProfileWithSearchAndFeed,
       ShopProductsSlice,
       ShopProductsSliceDefaultPrimaryProductsItem,
       ShopProductsSliceDefaultPrimary,
       ShopProductsSliceVariation,
       ShopProductsSliceDefault,
+      SidebarWidgetsSlice,
+      SidebarWidgetsSliceDefaultPrimaryWidgetsItem,
+      SidebarWidgetsSliceDefaultPrimary,
+      SidebarWidgetsSliceVariation,
+      SidebarWidgetsSliceDefault,
       WhyChooseUsSlice,
       WhyChooseUsSliceDefaultPrimaryBefenItem,
       WhyChooseUsSliceDefaultPrimary,

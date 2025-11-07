@@ -1,0 +1,66 @@
+{
+  "type": "SharedSlice",
+  "id": "article_detail",
+  "name": "ArticleDetail",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard article detail layout with hero image, metadata, main content, section images, and supporting text blocks.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "hero_image": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Image"
+          }
+        },
+        "category": {
+          "type": "Text",
+          "config": {
+            "label": "Category"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1",
+            "label": "Title"
+          }
+        },
+        "meta_info": {
+          "type": "Group",
+          "config": {
+            "label": "Metadata",
+            "fields": {
+              "meta_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Meta Label"
+                }
+              },
+              "meta_value": {
+                "type": "Text",
+                "config": {
+                  "label": "Meta Value"
+                }
+              }
+            }
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

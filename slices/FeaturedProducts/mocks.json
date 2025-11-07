@@ -89,11 +89,10 @@
 								"product_detail_link",
 								{
 									"__TYPE__": "LinkContent",
-									"key": "092148c7-a446-401e-b135-e3f4b90807c7",
+									"key": "e556f090-4339-49ca-b222-63d5d58fb5d5",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "drop"
+										"url": "https://prismic.io"
 									}
 								}
 							]

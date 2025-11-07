@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/componnets/Navbar";
 import { Suspense } from "react";
 import Footer from "@/componnets/Footer";
+import { CartProvider } from "@/contexts/CartContext";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${oswald.variable} ${roboto.variable} antialiased`}>
-        {children}
+        <CartProvider>{children}</CartProvider>
         <Footer />
       </body>
     </html>

@@ -1,0 +1,39 @@
+{
+  "type": "SharedSlice",
+  "id": "logo_row",
+  "name": "LogoRow",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Main variation with optional heading and a group of logos.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "logos": {
+          "type": "Group",
+          "config": {
+            "label": "Logos",
+            "fields": {
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo"
+                }
+              }
+            }
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

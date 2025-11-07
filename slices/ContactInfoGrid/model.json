@@ -1,0 +1,46 @@
+{
+  "type": "SharedSlice",
+  "id": "contact_info_grid",
+  "name": "ContactInfoGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Each item is a contact info card with icon, title, and one or more lines of content.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "items": {
+          "type": "Group",
+          "config": {
+            "label": "Contact Items",
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon"
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "details": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink",
+                  "label": "Details"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import Container from "@/componnets/Container";
 
 /**
  * Props for `Brands`.
@@ -27,7 +28,7 @@ const Brands: FC<BrandsProps> = ({ slice }) => {
       </div>
 
       {/* Main Green Section */}
-      <div className="relative">
+      <div className="relative px-6">
         {/* Background Image (if needed) */}
         <div className="absolute inset-0">
           <PrismicNextImage
@@ -43,11 +44,11 @@ const Brands: FC<BrandsProps> = ({ slice }) => {
             {slice.primary.features?.map((item: any, i: number) => (
               <div key={i} className="flex flex-col items-start space-y-3">
                 {item.icon?.url && (
-                  <div className="inline-block rounded-full bg-[#007f32] p-3">
+                  <div className="inline-block rounded-full p-3">
                     <PrismicNextImage field={item.icon} className="h-8 w-8" />
                   </div>
                 )}
-                <h2 className="text-lg font-bold tracking-wide uppercase">
+                <h2 className="text-lg font-bold tracking-wider text-white uppercase">
                   {item.heading}
                 </h2>
                 <p className="max-w-xs text-sm text-white/90">

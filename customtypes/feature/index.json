@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "logo_row": {
+              "type": "SharedSlice"
+            },
             "why_choose_us": {
               "type": "SharedSlice"
             },

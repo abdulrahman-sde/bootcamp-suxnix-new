@@ -8,7 +8,7 @@ export default async function Footer() {
   const { data } = await client.getSingle("footer").catch(() => notFound());
 
   return (
-    <footer className="relative overflow-hidden bg-black text-white">
+    <footer className="relative overflow-hidden bg-[#0A0A0A] text-white">
       {/* Decorative top brush image */}
       <div className="w-full">
         <PrismicNextImage
@@ -25,7 +25,7 @@ export default async function Footer() {
         />
       </div>
 
-      <Container className="relative z-10 mx-auto grid grid-cols-1 gap-10 px-6 py-12 md:grid-cols-4">
+      <Container className="relative z-10 mx-auto grid grid-cols-1 gap-20 px-6 py-12 md:grid-cols-4">
         {/* Leaves background images */}
 
         {/* COLUMN 1 - Brand + Description + Socials */}
@@ -35,12 +35,8 @@ export default async function Footer() {
               field={data.brand_logo}
               className="h-auto w-[60%] object-cover"
             />
-            {/* <div>
-              <h2 className="text-2xl font-bold text-white">Suxnix</h2>
-              <p className="text-xs text-gray-400">Power Supplement</p>
-            </div> */}
           </div>
-          <p className="text-sm leading-relaxed text-gray-400">
+          <p className="text-[15px] leading-relaxed text-gray-400">
             {data.brand_motive}
           </p>
 
@@ -49,11 +45,11 @@ export default async function Footer() {
               <PrismicNextLink
                 key={i}
                 field={item.social_link}
-                className="rounded-full bg-gray-800 p-2 transition hover:bg-green-600"
+                className="rounded-full bg-[#1B1B1B] p-2 transition hover:bg-green-600"
               >
                 <PrismicNextImage
                   field={item.social_icon}
-                  className="h-4 w-4 object-contain invert"
+                  className="h-4 w-4 object-contain"
                 />
               </PrismicNextLink>
             ))}
@@ -61,8 +57,8 @@ export default async function Footer() {
         </div>
 
         {/* COLUMN 2 - About Us */}
-        <div>
-          <h2 className="mb-4 text-lg font-semibold uppercase">About Us</h2>
+        <div className="ms-10">
+          <h2 className="mb-4 text-xl font-semibold uppercase">About Us</h2>
           <ul className="space-y-2 text-sm text-gray-400">
             {data.about_us_links.map((item, i) => (
               <li key={i}>
@@ -77,7 +73,7 @@ export default async function Footer() {
 
         {/* COLUMN 3 - Support */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold uppercase">Support</h2>
+          <h2 className="mb-4 text-xl font-semibold uppercase">Support</h2>
           <ul className="space-y-2 text-sm text-gray-400">
             {data.support_links.map((item, i) => (
               <li key={i}>
@@ -92,7 +88,7 @@ export default async function Footer() {
 
         {/* COLUMN 4 - Contact Us */}
         <div>
-          <h2 className="mb-4 text-lg font-semibold uppercase">Contact Us</h2>
+          <h2 className="mb-4 text-xl font-semibold uppercase">Contact Us</h2>
           <ul className="space-y-2 text-sm text-gray-400">
             {data.contact_us_links.map((item, i) => (
               <li key={i}>

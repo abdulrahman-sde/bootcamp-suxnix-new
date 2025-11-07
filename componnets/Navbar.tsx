@@ -9,7 +9,7 @@ export default async function Navbar({ component }: { component: string }) {
 
   return (
     <nav
-      className={`font-roboto ${component === "landing_hero" ? "bg-[#f1f7eb]" : ""}`}
+      className={`font-roboto ${component === "landing_hero" ? "bg-[#f1f7eb]" : ""} pt-2`}
     >
       <Container
         className={`mx-auto flex max-w-[1320px] items-center justify-between px-4 ${component === "landing_hero" ? "pt-5" : "py-5"}`}
@@ -29,7 +29,7 @@ export default async function Navbar({ component }: { component: string }) {
             <PrismicNextLink
               key={idx}
               field={item.nav_link}
-              className="font-medium text-gray-800 transition hover:text-green-700"
+              className="hover:text-secondary text-[16px] font-semibold tracking-wide text-[#777777] transition"
             />
           ))}
         </div>

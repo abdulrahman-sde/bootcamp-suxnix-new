@@ -3,14 +3,21 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  article_detail: dynamic(() => import("./ArticleDetail")),
   banner: dynamic(() => import("./Banner")),
   blog: dynamic(() => import("./Blog")),
   brands: dynamic(() => import("./Brands")),
+  checkout_form_2: dynamic(() => import("./CheckoutForm")),
+  contact_form_with_map: dynamic(() => import("./ContactFormWithMap")),
+  contact_info_grid: dynamic(() => import("./ContactInfoGrid")),
   feature_hero: dynamic(() => import("./FeatureHero")),
   featured_products: dynamic(() => import("./FeaturedProducts")),
   hero: dynamic(() => import("./Hero")),
   ingredients: dynamic(() => import("./Ingredients")),
+  logo_row: dynamic(() => import("./LogoRow")),
   offers: dynamic(() => import("./Offers")),
+  profile_sidebar: dynamic(() => import("./ProfileSidebar")),
   shop_products: dynamic(() => import("./ShopProducts")),
+  sidebar_widgets: dynamic(() => import("./SidebarWidgets")),
   why_choose_us: dynamic(() => import("./WhyChooseUs")),
 };

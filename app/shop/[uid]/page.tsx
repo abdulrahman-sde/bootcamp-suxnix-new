@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   return (
     <>
       <SliceZone slices={page.data.slices} components={components} />
-      <Container className="px-4">
+      <Container className="px-6">
         {/* Grid layout: left for images, right for product details */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           {/* LEFT SECTION - MAIN IMAGE + GALLERY */}
@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           {/* RIGHT SECTION - DETAILS */}
           <div>
             {/* Product Title */}
-            <h1 className="mb-2 text-2xl font-bold text-gray-800 uppercase">
+            <h1 className="mb-2 text-[36px] font-medium text-gray-800 uppercase">
               {page.data.name}
             </h1>
 
@@ -63,18 +63,31 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                   {page.data.brand}
                 </span>
               </span>
-              <span className="text-yellow-500">★</span>
-              <span>{page.data.rating}</span>
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <span
+                    key={i}
+                    className={`${
+                      i < Math.floor(page.data.rating ?? 0)
+                        ? "text-primary"
+                        : "text-gray-300"
+                    }`}
+                  >
+                    ★
+                  </span>
+                ))}
+                <span className="ml-1 text-gray-700">({page.data.rating})</span>
+              </div>
               <span className="text-gray-400">| ID: {page.uid}</span>
             </div>
 
             {/* Price + Stock */}
             <div className="mb-4 flex items-center gap-3">
-              <span className="text-3xl font-bold text-gray-800">
+              <span className="price text-4xl font-medium text-gray-800">
                 ${page.data.price}
               </span>
               <span
-                className={`text-sm font-semibold ${
+                className={`price text-sm font-semibold ${
                   page.data.in_stock ? "text-green-600" : "text-red-500"
                 }`}
               >
@@ -83,7 +96,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             </div>
 
             {/* Short Description */}
-            <p className="mb-6 leading-relaxed text-gray-600">
+            <p className="mb-6 text-[15.7px] leading-relaxed text-gray-600">
               {page.data.short_descrition}
             </p>
 
@@ -92,7 +105,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
               {page.data.bullet_details.map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-gray-700">
                   <span className="text-green-500">●</span>
-                  <span className="font-medium">{item.label}:</span>
+                  <span className="font-bold text-gray-500">{item.label}:</span>
                   <span>{item.data}</span>
                 </div>
               ))}
@@ -100,28 +113,31 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
             {/* Quantity + Add to Cart */}
             <div className="mb-6 flex items-center gap-3">
-              <div className="flex items-center border">
-                <button className="px-3 py-2 text-lg font-semibold hover:bg-gray-100">
+              <div className="flex items-center rounded-sm border border-gray-300">
+                <button className="border-r border-gray-300 px-3.5 py-2 text-lg font-semibold hover:bg-gray-100">
                   -
                 </button>
-                <span className="border-x px-4 py-2">1</span>
-                <button className="px-3 py-2 text-lg font-semibold hover:bg-gray-100">
+                <span className="border-x border-gray-300 px-5 py-2">1</span>
+                <button className="border-l border-gray-300 px-3.5 py-2 text-lg font-semibold hover:bg-gray-100">
                   +
                 </button>
               </div>
-              <button className="bg-green-600 px-5 py-2 font-medium text-white transition hover:bg-green-700">
+              <button className="font-roboto rounded-sm bg-[#0D9B4D] px-5 py-3 text-[14px] font-bold text-white transition hover:bg-green-700">
                 ADD TO CART
               </button>
-              <button className="border border-gray-100 px-3 py-2 transition hover:bg-gray-100">
+              {/* <button className="border border-gray-100 px-3 py-2 transition hover:bg-gray-100">
                 ♥
-              </button>
+              </button> */}
             </div>
 
             {/* Tags */}
             <div className="mb-2 text-sm text-gray-700">
-              <span className="font-medium">Tag:</span>
+              <span className="mr-2 text-[16.2px] font-bold">Tag:</span>
               {page.data.tags.map((item, i) => (
-                <span key={i} className="ml-1 rounded-sm border px-3 py-1">
+                <span
+                  key={i}
+                  className="ml-1 rounded-sm border border-gray-300 px-3 py-1"
+                >
                   {item.tag}
                 </span>
               ))}
@@ -129,11 +145,11 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
             {/* Categories */}
             <div className="flex flex-wrap gap-2 text-sm text-gray-700">
-              <span className="font-medium">Categories:</span>
+              <span className="mr-2 text-[16.2px] font-bold">Categories:</span>
               {page.data.categories.map((item, i) => (
                 <span
                   key={i}
-                  className="rounded-sm border bg-gray-100 px-3 py-1 text-gray-600"
+                  className="rounded-sm border border-gray-300 px-4 py-1 text-gray-600"
                 >
                   {item.category}
                 </span>

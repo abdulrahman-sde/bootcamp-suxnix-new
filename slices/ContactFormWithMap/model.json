@@ -1,0 +1,83 @@
+{
+  "type": "SharedSlice",
+  "id": "contact_form_with_map",
+  "name": "ContactFormWithMap",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard layout: map/embedded media left, contact form right.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "map_link": {
+          "type": "Text",
+          "config": {
+            "label": "Map Link",
+            "placeholder": ""
+          }
+        },
+        "full_name_label": {
+          "type": "Text",
+          "config": {
+            "label": "Full Name Label"
+          }
+        },
+        "email_address_label": {
+          "type": "Text",
+          "config": {
+            "label": "Email Address Label"
+          }
+        },
+        "subject_label": {
+          "type": "Text",
+          "config": {
+            "label": "Subject Label"
+          }
+        },
+        "subject_options": {
+          "type": "Group",
+          "config": {
+            "label": "Subject Options",
+            "fields": {
+              "subject_option": {
+                "type": "Text",
+                "config": {
+                  "label": "Option"
+                }
+              }
+            }
+          }
+        },
+        "message_label": {
+          "type": "Text",
+          "config": {
+            "label": "Message Label"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text"
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": ""
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

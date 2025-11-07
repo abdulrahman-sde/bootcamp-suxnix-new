@@ -1,0 +1,70 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "billing_with_additional_info",
+		"primary": {
+			"fields": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"field_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "loose",
+									"type": "Text"
+								}
+							],
+							[
+								"required",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"placeholder",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "someone",
+									"type": "Text"
+								}
+							],
+							[
+								"type",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "protection",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"billing_detail_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "treated",
+				"type": "Text"
+			},
+			"additional_info_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "could",
+				"type": "Text"
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "southern",
+				"type": "Text"
+			},
+			"placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "primitive",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

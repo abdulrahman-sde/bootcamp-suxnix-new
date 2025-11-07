@@ -1,0 +1,79 @@
+{
+  "type": "SharedSlice",
+  "id": "checkout_form_2",
+  "name": "CheckoutForm",
+  "variations": [
+    {
+      "id": "billing_with_additional_info",
+      "name": "Billing and Additional Information Form",
+      "description": "A checkout form variation with fields for billing details and a section for additional information such as order notes.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "billing_detail_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Billing Detail Heading",
+            "placeholder": ""
+          }
+        },
+        "fields": {
+          "type": "Group",
+          "config": {
+            "label": "Fields",
+            "fields": {
+              "field_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Field Label"
+                }
+              },
+              "type": {
+                "type": "Text",
+                "config": {
+                  "label": "Field Type",
+                  "placeholder": ""
+                }
+              },
+              "required": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Required"
+                }
+              },
+              "placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "Placeholder"
+                }
+              }
+            }
+          }
+        },
+        "additional_info_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Additional Info Heading",
+            "placeholder": ""
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

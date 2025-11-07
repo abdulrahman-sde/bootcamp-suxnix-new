@@ -29,13 +29,13 @@ const WhyChooseUs: FC<WhyChooseUsProps> = ({ slice }) => {
       )}
 
       {/* === Content Wrapper === */}
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
+      <div className="mx-auto flex max-w-[1320] items-center gap-14 px-6 py-16">
         {/* Left Content */}
         <div className="space-y-6">
-          <p className="text-sm tracking-widest text-yellow-200 uppercase">
+          <p className="text-primary text-[14px] font-bold tracking-widest uppercase">
             {slice.primary.tagline}
           </p>
-          <h2 className="text-4xl leading-tight font-extrabold md:text-5xl">
+          <h2 className="text-4xl leading-tight font-extrabold uppercase md:text-5xl">
             {slice.primary.heading}
           </h2>
 
@@ -65,11 +65,13 @@ const WhyChooseUs: FC<WhyChooseUsProps> = ({ slice }) => {
         </div>
 
         {/* Right Circular Image */}
-        <div className="relative flex justify-center lg:justify-end">
-          <div className="relative h-72 w-72 overflow-hidden rounded-full border-[10px] border-green-700 shadow-lg md:h-96 md:w-96">
+        <div className="ms-3 hidden justify-center lg:flex lg:justify-end">
+          <div className="overflow-hidden">
             <PrismicNextImage
               field={slice.primary.image}
-              className="h-full w-full object-cover"
+              className=""
+              width={600}
+              height={520}
             />
           </div>
         </div>

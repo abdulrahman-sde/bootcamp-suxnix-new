@@ -18,6 +18,13 @@
             "label": "Products",
             "repeat": true,
             "fields": {
+              "product_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Id",
+                  "placeholder": ""
+                }
+              },
               "chip": {
                 "type": "Text",
                 "config": {

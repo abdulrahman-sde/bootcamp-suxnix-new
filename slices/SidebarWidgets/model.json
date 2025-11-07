@@ -1,0 +1,133 @@
+{
+  "type": "SharedSlice",
+  "id": "sidebar_widgets",
+  "name": "SidebarWidgets",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard variation to build a sidebar with stackable widgets for profile, search, feeds, and categories. Widgets can repeat and re-order as required.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "widgets": {
+          "type": "Group",
+          "config": {
+            "label": "Widgets",
+            "fields": {
+              "widget_type": {
+                "type": "Select",
+                "config": {
+                  "label": "Widget Type",
+                  "options": ["Profile", "Search", "PopularFeeds", "Categories"]
+                }
+              },
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading"
+                }
+              },
+              "profile_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Profile Image"
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink",
+                  "label": "Description"
+                }
+              },
+              "social_links": {
+                "type": "Link",
+                "config": {
+                  "label": "Social Links",
+                  "allowText": false,
+                  "repeat": true,
+                  "select": null
+                }
+              },
+              "search_placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "Search Placeholder"
+                }
+              },
+              "search_button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Search Button Text"
+                }
+              },
+              "feed_date_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Feed Date Label"
+                }
+              },
+              "category_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Category Label"
+                }
+              },
+              "category_count_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Category Count Label"
+                }
+              },
+              "category_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Category Name"
+                }
+              },
+              "category_count": {
+                "type": "Number",
+                "config": {
+                  "label": "Category Count"
+                }
+              },
+              "feed_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Feed Image"
+                }
+              },
+              "feed_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Feed Title"
+                }
+              },
+              "feed_title_rich": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph,strong,em",
+                  "label": "Feed Title Rich"
+                }
+              },
+              "feed_date": {
+                "type": "Text",
+                "config": {
+                  "label": "Feed Date"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"category": {
+				"__TYPE__": "FieldContent",
+				"value": "last",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Block"
+						}
+					}
+				]
+			},
+			"hero_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
+					"width": 5848,
+					"height": 3899
+				},
+				"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
+				"width": 5848,
+				"height": 3899,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "bad",
+				"credits": null,
+				"__TYPE__": "ImageContent"
+			},
+			"meta_info": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"meta_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "foot",
+									"type": "Text"
+								}
+							],
+							[
+								"meta_value",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "trip",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla dolore aute ad. Lorem adipisicing tempor amet duis mollit voluptate fugiat Lorem deserunt do. Mollit sunt aliqua minim ex tempor irure eu adipisicing aute non consectetur quis officia aliqua nisi."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

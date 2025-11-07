@@ -112,13 +112,21 @@
 							[
 								"product_detail_link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "5a03a14a-b7ab-4105-b26a-c11c8cd8384c",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "http://google.com",
 										"text": "women"
 									}
+								}
+							],
+							[
+								"product_id",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "egg",
+									"type": "Text"
 								}
 							]
 						]

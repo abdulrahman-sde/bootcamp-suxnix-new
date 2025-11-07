@@ -1,0 +1,67 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"full_name_label": {
+				"__TYPE__": "FieldContent",
+				"value": "class",
+				"type": "Text"
+			},
+			"email_address_label": {
+				"__TYPE__": "FieldContent",
+				"value": "hard",
+				"type": "Text"
+			},
+			"subject_label": {
+				"__TYPE__": "FieldContent",
+				"value": "modern",
+				"type": "Text"
+			},
+			"subject_options": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"subject_option",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "thread",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"message_label": {
+				"__TYPE__": "FieldContent",
+				"value": "pay",
+				"type": "Text"
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "night",
+				"type": "Text"
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "stock",
+				"type": "Text"
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "shop",
+				"type": "Text"
+			},
+			"map_link": {
+				"__TYPE__": "FieldContent",
+				"value": "factor",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
