@@ -52,14 +52,16 @@ export default function BlogDetail({ page }: BlogDetailProps) {
           {page.data.related_tags_heading}
         </h3>
         <div className="mt-3 flex flex-wrap gap-3">
-          {page.data.related_tags.map((item: { tag: string }, index) => (
-            <span
-              key={index}
-              className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700"
-            >
-              {item.tag}
-            </span>
-          ))}
+          {page.data.related_tags.map(
+            (item: { tag: string }, index: number) => (
+              <span
+                key={index}
+                className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700"
+              >
+                {item.tag}
+              </span>
+            ),
+          )}
         </div>
 
         {/* Social Share */}
@@ -68,14 +70,16 @@ export default function BlogDetail({ page }: BlogDetailProps) {
             {page.data.social_share_heading}
           </h3>
           <div className="flex gap-4">
-            {page.data.social_links.map((item, index) => (
-              <PrismicNextLink key={index} field={item.social_link}>
-                <PrismicNextImage
-                  field={item.social_icon}
-                  className="h-6 w-6 transition hover:opacity-75"
-                />
-              </PrismicNextLink>
-            ))}
+            {page.data.social_links.map(
+              (item: { social_link: any; social_icon: any }, index: number) => (
+                <PrismicNextLink key={index} field={item.social_link}>
+                  <PrismicNextImage
+                    field={item.social_icon}
+                    className="h-6 w-6 transition hover:opacity-75"
+                  />
+                </PrismicNextLink>
+              ),
+            )}
           </div>
         </div>
       </div>
