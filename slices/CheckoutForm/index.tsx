@@ -6,7 +6,6 @@ import { SliceComponentProps } from "@prismicio/react";
 import Container from "@/componnets/Container";
 import PlaceOrder from "@/componnets/PlaceOrder";
 import { useCart } from "@/contexts/CartContext";
-import { CheckoutSchema } from "@/lib/zodSchema";
 import { toast } from "sonner";
 import { useSearchParams } from "next/navigation";
 
