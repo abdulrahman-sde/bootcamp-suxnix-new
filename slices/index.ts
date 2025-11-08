@@ -20,5 +20,6 @@ export const components = {
   shop_products: dynamic(() => import("./ShopProducts")),
   shop_sidebar: dynamic(() => import("./ShopSidebar")),
   sidebar_widgets: dynamic(() => import("./SidebarWidgets")),
+  tabbed_content: dynamic(() => import("./TabbedContent")),
   why_choose_us: dynamic(() => import("./WhyChooseUs")),
 };

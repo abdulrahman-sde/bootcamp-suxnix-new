@@ -3,47 +3,65 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { notFound } from "next/navigation";
 import Container from "./Container";
 import MobileMenu from "./MobileMenu";
+import CartItemsBadge from "./CartItemsBadge";
+import Link from "next/link";
+
 export default async function Navbar({ component }: { component: string }) {
   const client = createClient();
   const page = await client.getSingle("navbar").catch(() => notFound());
 
+  const isLandingHero = component === "landing_hero";
+  const isFeatureHero = component === "feature_hero";
+
+  // Determine dynamic navbar style based on component type
+  const navStyle = isLandingHero
+    ? "relative bg-[#f1f7eb] pt-2"
+    : isFeatureHero
+      ? "relative bg-white pt-2"
+      : "absolute top-0 left-0 w-full bg-transparent z-50";
+
   return (
-    <nav
-      className={`font-roboto ${component === "landing_hero" ? "bg-[#f1f7eb]" : ""} pt-2`}
-    >
+    <nav className={`font-roboto ${navStyle}`}>
       <Container
-        className={`mx-auto flex max-w-[1320px] items-center justify-between px-4 ${component === "landing_hero" ? "pt-5" : "py-5"}`}
+        className={`mx-auto flex max-w-[1320px] items-center justify-between px-4 ${
+          isLandingHero || isFeatureHero ? "pt-5" : "py-7"
+        }`}
       >
         {/* === Brand Logo === */}
-        <div className="flex items-center">
-          {component === "banner" ? (
+        <Link href="/" className="flex items-center">
+          {isLandingHero || isFeatureHero ? (
             <PrismicNextImage field={page.data.brand_logo} />
           ) : (
-            <PrismicNextImage field={page.data.brand_logo} />
+            <PrismicNextImage field={page.data.secondary_brand_logo} />
           )}
-        </div>
+        </Link>
 
-        {/* === Desktop Nav Links (hidden on mobile) === */}
+        {/* === Desktop Nav Links === */}
         <div className="hidden gap-13 md:flex">
           {page.data.nav_links.map((item, idx) => (
             <PrismicNextLink
               key={idx}
               field={item.nav_link}
-              className="hover:text-secondary text-[16px] font-semibold tracking-wide text-[#777777] transition"
+              className={`text-[16px] font-semibold tracking-wide transition ${
+                isLandingHero || isFeatureHero
+                  ? "text-[#777777] hover:text-[#0a9b4c]"
+                  : "text-white hover:text-[#0a9b4c]"
+              }`}
             />
           ))}
         </div>
 
-        {/* === Icons Section (always visible) === */}
+        {/* === Icons Section === */}
         <div className="flex items-center gap-8">
           {page.data.nav_icons.map((item, idx) => {
-            const isThirdIcon = idx === 2; // third icon in your array
+            const isThirdIcon = idx === 2; // Mobile menu icon
+            const isCartIcon = idx === 0;
 
             if (isThirdIcon) {
               return (
                 <div
                   key={idx}
-                  className="bg- rounded-full bg-[#0a9b4c] p-4 md:hidden"
+                  className="rounded-full bg-[#0a9b4c] p-4 md:hidden"
                 >
                   <MobileMenu data={page.data} icon={item} />
                 </div>
@@ -54,9 +72,13 @@ export default async function Navbar({ component }: { component: string }) {
               <PrismicNextLink
                 key={idx}
                 field={item.nav_icon_link}
-                // className={}
+                className="relative"
               >
-                <PrismicNextImage field={item.nav_icon} />
+                <PrismicNextImage
+                  field={item.nav_icon}
+                  className={`${!(isLandingHero || isFeatureHero) && "invert"}`}
+                />
+                {isCartIcon && <CartItemsBadge key={idx} />}
               </PrismicNextLink>
             );
           })}

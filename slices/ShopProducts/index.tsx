@@ -3,16 +3,14 @@ import { FC, useMemo, useState } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import Sidebar from "@/componnets/FilteringSidebar";
-import Container from "@/componnets/Container";
+
 import CartBtn from "@/componnets/CartBtn";
 import { useShopFilters } from "@/contexts/FiltersContext";
 
 export type ShopProductsProps = SliceComponentProps<Content.ShopProductsSlice>;
 
 const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
-  const { priceRange, selectedCategory, setSelectedCategory, setPriceRange } =
-    useShopFilters();
+  const { priceRange, selectedCategory } = useShopFilters();
 
   const [sortBy, setSortBy] = useState<"rating" | "price-asc" | "price-desc">(
     "rating",
@@ -44,10 +42,10 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=""
+      className="mb-40"
     >
       {/* TOP BAR: showing counts + sorting */}
-      <div className="font-roboto mb-4 flex w-full items-center justify-between border border-gray-200 px-4 py-2">
+      <div className="font-roboto mb-4 flex w-full items-center justify-between border border-gray-200 px-5 py-3">
         <div className="text-sm text-gray-600">
           Showing 1-{filteredProducts.length} of {slice.primary.products.length}{" "}
           results
@@ -58,7 +56,7 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="rounded border px-2 py-1 text-sm"
+            className="rounded border border-gray-200 px-2 py-1 text-sm"
           >
             <option value="rating">Rating (Default) </option>
             <option value="price-asc">Price: Low to High</option>
@@ -72,7 +70,7 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
         {filteredProducts.map((item) => (
           <div
             key={item.product_id}
-            className="relative flex max-h-[433px] flex-col justify-center border border-gray-100 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.05)]"
+            className="relative flex max-h-[473px] flex-col justify-center border border-gray-100 bg-white p-6 pt-12 pb-6 shadow-[0_8px_30px_rgb(0,0,0,0.05)]"
           >
             {/* Discount Badge */}
             {item.chip && (
@@ -87,7 +85,7 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
             >
               <PrismicNextImage
                 field={item.product_image}
-                className="h-full w-full object-contain"
+                className="mt-2 h-full w-full object-contain"
               />
             </PrismicNextLink>
 
@@ -128,7 +126,7 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
                 image: item.product_image.url || "",
               }}
             >
-              <div className="mt-auto w-fit rounded-full bg-green-600 p-3">
+              <div className="mt-4 w-fit cursor-pointer rounded-full bg-green-600 p-3 hover:bg-green-700">
                 <PrismicNextImage
                   field={item.cart_icon}
                   className="h-5 w-5 object-contain brightness-0 invert"
@@ -138,6 +136,11 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
           </div>
         ))}
       </div>
+      {filteredProducts.length === 0 && (
+        <div className="col-span-full flex h-[300px] items-center justify-center text-sm text-gray-500">
+          No products found matching your filters.
+        </div>
+      )}
     </section>
   );
 };

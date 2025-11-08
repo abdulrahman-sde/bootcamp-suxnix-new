@@ -32,7 +32,7 @@ const Offers: FC<OffersProps> = ({ slice }) => {
         {slice.primary.offer_card.map((item, index) => (
           <div
             key={index}
-            className={`relative flex flex-col items-center rounded-sm border-4 border-[#222222] p-7 shadow-md transition-all hover:shadow-lg ${
+            className={`relative my-4 flex flex-col items-center rounded-sm border-4 border-[#222222] p-7 shadow-md transition-all hover:shadow-lg ${
               index === 1 && "border-[#818181]"
             } ${index === 2 && "border-secondary"}`}
           >
@@ -103,7 +103,22 @@ const Offers: FC<OffersProps> = ({ slice }) => {
             {/* Buy Button */}
             <div className="mt-6 w-full">
               <PrismicNextLink
-                field={item.buy_now_button}
+                href={{
+                  pathname: "/checkout",
+                  query: {
+                    offer: JSON.stringify({
+                      id: index,
+                      name: item.name,
+                      units: item.bottle_units,
+                      caps: item.bottle_caps,
+                      price: item.price,
+                      total_price: item.total_price,
+                      save: item.save,
+                      shipping: item.free_shipping,
+                      image: item.product_image.url,
+                    }),
+                  },
+                }}
                 className="bg-secondary font-roboto block w-full rounded-md py-1.5 text-[20px] font-semibold text-white"
               >
                 BUY NOW
@@ -111,6 +126,7 @@ const Offers: FC<OffersProps> = ({ slice }) => {
                   365 DAY MONEY FULL BACK GUARANTEED
                 </p>
               </PrismicNextLink>
+
               {/* <p className="mt-2 text-xs text-gray-600">
                 365 DAY FULL MONEY BACK GUARANTEED
               </p> */}

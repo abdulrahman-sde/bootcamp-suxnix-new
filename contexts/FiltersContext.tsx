@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useReducer, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  ReactNode,
+  useCallback,
+} from "react";
 
 type State = {
   category: string | null;
@@ -15,7 +21,7 @@ type Action =
 const initialState: State = {
   category: null,
   // default to an open-ended range so components don't need to null-check
-  priceRange: [0, Number.MAX_SAFE_INTEGER],
+  priceRange: [0, 200],
 };
 
 function reducer(state: State, action: Action): State {
@@ -23,6 +29,13 @@ function reducer(state: State, action: Action): State {
     case "SET_CATEGORY":
       return { ...state, category: action.payload };
     case "SET_PRICE_RANGE":
+      // Only update if values actually changed to prevent unnecessary re-renders
+      if (
+        state.priceRange[0] === action.payload[0] &&
+        state.priceRange[1] === action.payload[1]
+      ) {
+        return state;
+      }
       return { ...state, priceRange: action.payload };
     default:
       return state;
@@ -39,11 +52,15 @@ const ShopFiltersContext = createContext<{
 export function ShopFiltersProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const setSelectedCategory = (c: string | null) =>
-    dispatch({ type: "SET_CATEGORY", payload: c });
+  const setSelectedCategory = useCallback(
+    (c: string | null) => dispatch({ type: "SET_CATEGORY", payload: c }),
+    [],
+  );
 
-  const setPriceRange = (r: [number, number]) =>
-    dispatch({ type: "SET_PRICE_RANGE", payload: r });
+  const setPriceRange = useCallback(
+    (r: [number, number]) => dispatch({ type: "SET_PRICE_RANGE", payload: r }),
+    [],
+  );
 
   return (
     <ShopFiltersContext.Provider

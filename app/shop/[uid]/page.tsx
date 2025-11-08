@@ -6,6 +6,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { PrismicNextImage } from "@prismicio/next";
 import Container from "@/componnets/Container";
+import ProductDetailCartBtn from "@/componnets/ProductDetailCartBtn";
 
 type Params = { uid: string };
 
@@ -16,9 +17,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     .getByUID("product_details", uid)
     .catch(() => notFound());
 
+  const slices = page.data.slices;
+
+  const firstSlices = slices.slice(0, 1); // all except last 2
+  const remainingSlices = slices.slice(1); // remaining slices
+
   return (
     <>
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone slices={firstSlices} components={components} />
       <Container className="px-6">
         {/* Grid layout: left for images, right for product details */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
@@ -112,23 +118,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             </div>
 
             {/* Quantity + Add to Cart */}
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex items-center rounded-sm border border-gray-300">
-                <button className="border-r border-gray-300 px-3.5 py-2 text-lg font-semibold hover:bg-gray-100">
-                  -
-                </button>
-                <span className="border-x border-gray-300 px-5 py-2">1</span>
-                <button className="border-l border-gray-300 px-3.5 py-2 text-lg font-semibold hover:bg-gray-100">
-                  +
-                </button>
-              </div>
-              <button className="font-roboto rounded-sm bg-[#0D9B4D] px-5 py-3 text-[14px] font-bold text-white transition hover:bg-green-700">
-                ADD TO CART
-              </button>
-              {/* <button className="border border-gray-100 px-3 py-2 transition hover:bg-gray-100">
-                ♥
-              </button> */}
-            </div>
+            <ProductDetailCartBtn
+              product={{
+                product_id: page.uid,
+                name: page.data.name ?? "",
+                price: page.data.price ?? 0,
+                image: page.data.product_images[0]?.product_image.url ?? "",
+              }}
+            />
 
             {/* Tags */}
             <div className="mb-2 text-sm text-gray-700">
@@ -159,6 +156,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         </div>
 
         {/* Slices below (like description, reviews, etc.) */}
+
+        <SliceZone slices={remainingSlices} components={components} />
       </Container>
     </>
   );

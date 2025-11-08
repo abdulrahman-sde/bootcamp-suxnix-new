@@ -17,7 +17,9 @@
     "lucide-react": "^0.552.0",
     "next": "16.0.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "sonner": "^2.0.7",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "^0.3.86",

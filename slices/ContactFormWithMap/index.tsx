@@ -4,43 +4,48 @@ import { FC, useState } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Container from "@/componnets/Container";
+import { toast } from "sonner";
 
 export type ContactFormWithMapProps =
   SliceComponentProps<Content.ContactFormWithMapSlice>;
 
 const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
-  // const formspreeEndpoint = slice.primary.formspree_endpoint;
-
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | "">("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setStatus("");
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    const formData = new FormData(e.currentTarget);
+    try {
+      setLoading(true);
+      setStatus("");
 
-    // try {
-    //   const response = await fetch(formspreeEndpoint, {
-    //     method: "POST",
-    //     body: formData,
-    //     headers: {
-    //       Accept: "application/json",
-    //     },
-    //   });
+      const response = await fetch(form.action, {
+        method: form.method,
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
 
-    //   if (response.ok) {
-    //     setStatus("success");
-    //     e.currentTarget.reset();
-    //   } else {
-    //     setStatus("error");
-    //   }
-    // } catch {
-    //   setStatus("error");
-    // }
-
-    setLoading(false);
+      if (response.ok) {
+        form.reset();
+        setStatus("success");
+        toast.success("Your message has been sent!");
+        setTimeout(() => setStatus(""), 5000);
+      } else {
+        setStatus("error");
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus("error");
+      toast.error("Network error. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -56,6 +61,7 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
             src={slice.primary.map_link || ""}
             className="h-full w-full"
             loading="lazy"
+            title="Location Map"
           ></iframe>
         </div>
 
@@ -69,7 +75,12 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
             {slice.primary.heading}
           </h1>
 
-          <form onSubmit={handleSubmit} className="font-roboto space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            action="https://formspree.io/f/mpwkapyb"
+            method="POST"
+            className="font-roboto space-y-6"
+          >
             {/* Full Name + Email Row */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
@@ -80,7 +91,7 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
                   name="fullName"
                   type="text"
                   required
-                  placeholder="Enter here "
+                  placeholder="Enter here"
                   className="w-full rounded-md border border-gray-200 px-4 py-3 placeholder:text-[14px] focus:ring-2 focus:ring-green-300"
                 />
               </div>
@@ -93,7 +104,7 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
                   name="email"
                   type="email"
                   required
-                  placeholder="Enter here "
+                  placeholder="Enter here"
                   className="w-full rounded-md border border-gray-200 px-4 py-3 placeholder:text-[14px] focus:ring-2 focus:ring-green-300"
                 />
               </div>
@@ -101,9 +112,6 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
 
             {/* Subject */}
             <div>
-              {/* <label className="mb-2 block text-sm font-medium">
-                {slice.primary.subject_label}
-              </label> */}
               <select
                 name="subject"
                 required
@@ -111,7 +119,9 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
               >
                 <option value="">Select Subject</option>
                 {slice.primary.subject_options.map((option, index) => (
-                  <option key={index}>{option.subject_option}</option>
+                  <option key={index} value={option.subject_option || ""}>
+                    {option.subject_option}
+                  </option>
                 ))}
               </select>
             </div>
@@ -134,7 +144,7 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-full bg-green-700/75 px-8 py-3 font-semibold text-white capitalize transition hover:bg-green-600 disabled:opacity-50"
+              className="rounded-full bg-green-700/75 px-8 py-3 font-semibold text-white capitalize transition hover:bg-green-600 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {loading ? "Sending..." : slice.primary.button_text}
             </button>
@@ -143,11 +153,6 @@ const ContactFormWithMap: FC<ContactFormWithMapProps> = ({ slice }) => {
             {status === "success" && (
               <p className="font-medium text-green-600">
                 ✅ Your message has been sent!
-              </p>
-            )}
-            {status === "error" && (
-              <p className="font-medium text-red-600">
-                ❌ Something went wrong. Please try again.
               </p>
             )}
           </form>

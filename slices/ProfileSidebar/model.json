@@ -36,19 +36,32 @@
             "label": "Profile Description"
           }
         },
-        "profile_social_links": {
-          "type": "Link",
+        "social_links": {
+          "type": "Group",
           "config": {
-            "label": "Profile Social Links",
-            "allowText": false,
+            "label": "Social Links",
             "repeat": true,
-            "variants": [
-              "facebook",
-              "twitter",
-              "pinterest",
-              "behance"
-            ],
-            "select": null
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "lin": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
+              }
+            }
           }
         },
         "search_label": {
@@ -68,6 +81,17 @@
           "config": {
             "label": "Feed Items",
             "fields": {
+              "blog_detail_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Blog Detail Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
+              },
               "feed_image": {
                 "type": "Image",
                 "config": {
@@ -96,6 +120,83 @@
             "placeholder_false": "false",
             "placeholder_true": "true",
             "default_value": false
+          }
+        },
+        "categories": {
+          "type": "Text",
+          "config": {
+            "label": "Categories Heading",
+            "placeholder": ""
+          }
+        },
+        "categories_data": {
+          "type": "Group",
+          "config": {
+            "label": "Categories Data",
+            "repeat": true,
+            "fields": {
+              "category_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Category Label",
+                  "placeholder": ""
+                }
+              },
+              "total_blogs": {
+                "type": "Number",
+                "config": {
+                  "label": "Total Blogs",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "instagram_feeds_headinf": {
+          "type": "Text",
+          "config": {
+            "label": "Instagram Feeds Heading",
+            "placeholder": ""
+          }
+        },
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Images",
+            "repeat": true,
+            "fields": {
+              "feed_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Feed Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "popular_tags_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Popular Tags heading",
+            "placeholder": ""
+          }
+        },
+        "tags": {
+          "type": "Group",
+          "config": {
+            "label": "Tags",
+            "repeat": true,
+            "fields": {
+              "tag": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag",
+                  "placeholder": ""
+                }
+              }
+            }
           }
         }
       },

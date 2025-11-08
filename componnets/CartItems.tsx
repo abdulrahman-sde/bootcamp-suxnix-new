@@ -28,7 +28,7 @@ export default function Cart() {
   };
 
   return (
-    <Container className="font-roboto grid grid-cols-1 gap-10 p-6 lg:grid-cols-3">
+    <Container className="font-roboto mb-40 grid grid-cols-1 gap-10 p-6 lg:grid-cols-3">
       {/* LEFT SIDE - Cart Items */}
       <div className="space-y-6 rounded-lg p-6 lg:col-span-2">
         {/* Header */}
@@ -64,7 +64,7 @@ export default function Cart() {
               </div>
 
               {/* Price */}
-              <p className="font-semibold text-gray-700">${item.price}.00</p>
+              <p className="font-semibold text-gray-700">${item.price}</p>
 
               {/* Quantity */}
               <div className="flex items-center gap-2">
@@ -98,7 +98,7 @@ export default function Cart() {
 
         {/* Bottom Row: Coupon + Update Buttons */}
         <div className="flex flex-col items-center justify-between gap-4 pt-4 md:flex-row">
-          <div className="flex w-full gap-3 md:w-auto">
+          {/* <div className="flex w-full gap-3 md:w-auto">
             <input
               type="text"
               placeholder="Coupon code"
@@ -107,11 +107,11 @@ export default function Cart() {
             <button className="w-[200px] rounded-md bg-[#0D9B4D] px-4 py-2 text-white hover:bg-green-600">
               Apply Coupon
             </button>
-          </div>
+          </div> */}
 
-          <button className="rounded-md bg-[#0D9B4D] px-6 py-2 text-white hover:bg-green-600">
+          {/* <button className="rounded-md bg-[#0D9B4D] px-6 py-2 text-white hover:bg-green-600">
             Update Cart
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -133,7 +133,7 @@ export default function Cart() {
 
         <Link
           href="/checkout"
-          className="mt-10 w-full rounded-full bg-[#0D9B4D] px-20 py-3 font-semibold text-white hover:bg-green-600"
+          className="mt-10 w-full rounded-full bg-[#0D9B4D] px-6 py-3 font-semibold text-white hover:bg-green-600"
         >
           Proceed To Checkout
         </Link>

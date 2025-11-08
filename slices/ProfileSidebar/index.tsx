@@ -12,8 +12,8 @@ export type ProfileSidebarProps =
 const ProfileSidebar: FC<ProfileSidebarProps> = ({ slice }) => {
   return (
     <aside
-      className={`space-y-8 ${
-        slice.primary.is_blog_sidebar ? "w-[30%]" : "w-full"
+      className={`mb-20 space-y-8 ${
+        slice.primary.is_blog_sidebar ? "md:w-[30%]" : "w-full"
       }`}
     >
       {/* ABOUT ME BLOCK */}
@@ -32,17 +32,19 @@ const ProfileSidebar: FC<ProfileSidebarProps> = ({ slice }) => {
             {slice.primary.profile_name}
           </h3>
 
-          <p className="mt-2 text-sm leading-relaxed text-gray-600">
+          <div className="mt-2 text-sm leading-relaxed text-gray-600">
             <PrismicRichText field={slice.primary.profile_description} />
-          </p>
+          </div>
 
           {/* Social Icons */}
           <div className="mt-4 flex gap-4 text-sm text-gray-500">
-            {slice.primary.profile_social_links.map((link, i) => (
-              <PrismicNextLink key={i} field={link}>
-                <Facebook fill="#4267B2" className="w-4 hover:text-green-600" />
-                <i className={`hover:text-green-600`}></i>
-              </PrismicNextLink>
+            {slice.primary.social_links.map((item, i) => (
+              <div key={i}>
+                <PrismicNextLink field={item.lin}>
+                  <PrismicNextImage field={item.icon} />
+                </PrismicNextLink>
+              </div>
+              // Render the item
             ))}
           </div>
         </div>
@@ -76,12 +78,16 @@ const ProfileSidebar: FC<ProfileSidebarProps> = ({ slice }) => {
 
         <div className="space-y-6">
           {slice.primary.feed_items.map((item, i) => (
-            <div key={i} className="flex gap-4">
+            <PrismicNextLink
+              field={item.blog_detail_link}
+              key={i}
+              className="flex gap-4"
+            >
               <PrismicNextImage
                 field={item.feed_image}
                 className="h-20 w-20 object-cover"
               />
-              <div className="flex flex-col justify-between text-sm">
+              <div className="flex max-w-[180px] flex-col justify-between text-sm">
                 <h3 className="leading-snug font-semibold uppercase">
                   {item.feed_title}
                 </h3>
@@ -90,7 +96,65 @@ const ProfileSidebar: FC<ProfileSidebarProps> = ({ slice }) => {
                   {item.feed_date}
                 </p>
               </div>
+            </PrismicNextLink>
+          ))}
+        </div>
+      </div>
+      {/* CATEGORIES */}
+      <div className="border border-gray-200 p-6">
+        <h2 className="mb-6 flex items-center gap-2 text-lg font-medium uppercase">
+          <span className="h-5 w-[3px] bg-[#0D9B4D]"></span>
+          {slice.primary.categories}
+        </h2>
+
+        <div className="space-y-3">
+          {slice.primary.categories_data.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-between bg-gray-50 ps-4 transition-colors duration-200 hover:bg-[#0D9B4D] hover:text-white"
+            >
+              <p className="text-sm font-medium">{item.category_label}</p>
+              <span className="bg-[#0D9B4D] px-5 py-4 text-xs font-semibold text-white">
+                {item.total_blogs}
+              </span>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* INSTAGRAM FEEDS */}
+      <div className="border border-gray-200 p-6">
+        <h2 className="mb-6 flex items-center gap-2 text-lg font-medium uppercase">
+          <span className="h-5 w-[3px] bg-[#0D9B4D]"></span>
+          {slice.primary.instagram_feeds_headinf}
+        </h2>
+
+        <div className="grid grid-cols-3 gap-2">
+          {slice.primary.images.map((item, i) => (
+            <PrismicNextImage
+              key={i}
+              field={item.feed_image}
+              className="h-20 w-20 object-cover"
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* POPULAR TAGS */}
+      <div className="border border-gray-200 p-6">
+        <h2 className="mb-6 flex items-center gap-2 text-lg font-medium uppercase">
+          <span className="h-5 w-[3px] bg-[#0D9B4D]"></span>
+          {slice.primary.popular_tags_heading}
+        </h2>
+
+        <div className="flex flex-wrap gap-2">
+          {slice.primary.tags.map((item, i) => (
+            <span
+              key={i}
+              className="cursor-pointer rounded-sm bg-gray-100 px-4 py-1.5 text-xs font-semibold text-gray-600 uppercase transition-colors duration-200 hover:bg-[#0D9B4D] hover:text-white"
+            >
+              {item.tag}
+            </span>
           ))}
         </div>
       </div>

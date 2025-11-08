@@ -11,6 +11,10 @@ const ShopSidebar: FC<ShopSidebarProps> = ({ slice }) => {
   const { priceRange, setPriceRange, selectedCategory, setSelectedCategory } =
     useShopFilters();
 
+  // Define priceMin and priceMax from slice
+  const priceMin = slice.primary.price_min ?? 0;
+  const priceMax = slice.primary.price_max ?? 200;
+
   return (
     <aside
       className="w-full max-w-[30%] space-y-4 lg:max-w-[25%]"
@@ -19,19 +23,20 @@ const ShopSidebar: FC<ShopSidebarProps> = ({ slice }) => {
     >
       {/* === Filter By Price === */}
       <div>
-        <h3 className="mb-3 text-lg font-bold">
+        <h3 className="mb-3 text-xl font-medium uppercase">
           {slice.primary.filter_by_heading}
         </h3>
         <div className="border-t border-gray-200 pt-4">
           <input
             type="range"
-            min={slice.primary.price_min}
-            max={slice.primary.price_max}
+            min={priceMin}
+            max={priceMax}
             value={priceRange[1]}
-            onChange={(e) =>
-              setPriceRange([slice.primary.price_min, Number(e.target.value)])
-            }
-            className="w-full"
+            onChange={(e) => setPriceRange([priceMin, Number(e.target.value)])}
+            className="h-1 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-4 [&::-moz-range-thumb]:border-none [&::-moz-range-thumb]:border-[#0D9B4D] [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:shadow-md [&::-moz-range-track]:rounded-lg [&::-webkit-slider-runnable-track]:rounded-lg [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-[#0D9B4D] [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md"
+            style={{
+              background: `linear-gradient(to right, #0D9B4D 0%, #0D9B4D ${((priceRange[1] - priceMin) / (priceMax - priceMin)) * 100}%, #e5e7eb ${((priceRange[1] - priceMin) / (priceMax - priceMin)) * 100}%, #e5e7eb 100%)`,
+            }}
           />
           <p className="mt-2 text-sm text-gray-600">
             Price: ${priceRange[0]} - ${priceRange[1]}
@@ -41,7 +46,7 @@ const ShopSidebar: FC<ShopSidebarProps> = ({ slice }) => {
 
       {/* === Categories === */}
       <div>
-        <h3 className="mb-3 text-lg font-bold">
+        <h3 className="mb-3 pt-5 text-xl font-medium uppercase">
           {slice.primary.categories_heading}
         </h3>
         <ul className="space-y-2 border-t border-gray-200 pt-4 text-sm">
@@ -67,7 +72,7 @@ const ShopSidebar: FC<ShopSidebarProps> = ({ slice }) => {
 
       {/* === Latest Products === */}
       <div>
-        <h3 className="mb-3 text-lg font-bold">
+        <h3 className="mt-12 mb-3 text-xl font-medium uppercase">
           {slice.primary.latest_products_heading}
         </h3>
         <div className="space-y-4 border-t border-gray-200 pt-4">
@@ -92,9 +97,11 @@ const ShopSidebar: FC<ShopSidebarProps> = ({ slice }) => {
                 />
                 <div>
                   <div className="text-xs text-yellow-400">★★★★★</div>
-                  <p className="text-sm font-semibold">{item.product_name}</p>
-                  <p className="text-sm font-semibold text-green-600">
-                    ${item.price}
+                  <p className="price py-1 text-[19px] font-medium">
+                    {item.product_name}
+                  </p>
+                  <p className="text-sm font-semibold text-[#0D9B4D]">
+                    ${item.price}.00
                   </p>
                 </div>
               </PrismicNextLink>
@@ -105,7 +112,7 @@ const ShopSidebar: FC<ShopSidebarProps> = ({ slice }) => {
 
       {/* === Tags === */}
       <div>
-        <h3 className="mb-3 text-lg font-bold">
+        <h3 className="mt-12 mb-3 text-xl font-medium uppercase">
           {slice.primary.product_tags_heading}
         </h3>
         <div className="flex flex-wrap gap-2 border-t border-gray-200 pt-4">

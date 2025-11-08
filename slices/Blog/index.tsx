@@ -2,9 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import Container from "@/componnets/Container";
 import { ArrowRight, Calendar, Eye, MessageSquare } from "lucide-react";
-// import { Eye, MessageSquare, Calendar, ArrowRight } from "lucide-react";
 
 export type BlogProps = SliceComponentProps<Content.BlogSlice>;
 
@@ -21,12 +19,12 @@ const Blog: FC<BlogProps> = ({ slice }) => {
           className="font-roboto mb-10 max-w-[850px] overflow-hidden bg-white shadow-sm"
         >
           {/* Blog Image */}
-          <div className="relative">
+          <PrismicNextLink field={item.read_more} className="relative">
             <PrismicNextImage
               field={item.blog_cover}
               className="w-full object-cover"
             />
-          </div>
+          </PrismicNextLink>
 
           {/* Blog Content */}
           <div className="p-6 sm:p-8">

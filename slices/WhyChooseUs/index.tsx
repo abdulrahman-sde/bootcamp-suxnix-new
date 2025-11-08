@@ -16,7 +16,7 @@ const WhyChooseUs: FC<WhyChooseUsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative overflow-hidden bg-[#15A34A] py-20 text-white"
+      className="relative mb-20 overflow-hidden bg-[#15A34A] py-20 text-white"
     >
       {/* === Top Shaper Image === */}
       {slice.primary.top_reshaper?.url && (

@@ -1,0 +1,41 @@
+{
+  "type": "SharedSlice",
+  "id": "tabbed_content",
+  "name": "TabbedContent",
+  "variations": [
+    {
+      "id": "tab_with_rich_text_and_list",
+      "name": "Tab With Rich Text and List",
+      "description": "Each tab displays a title, structured content with headings and paragraphs, and a bullet list. Suitable for feature breakdowns or product explanations with basic editorial formatting per tab.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "tabs": {
+          "type": "Group",
+          "config": {
+            "label": "Tabs",
+            "fields": {
+              "tab_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Tab Label"
+                }
+              },
+              "body": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "body",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

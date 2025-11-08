@@ -1,0 +1,41 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "tab_with_rich_text_and_list",
+		"primary": {
+			"tabs": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"tab_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "wore",
+									"type": "Text"
+								}
+							],
+							[
+								"body",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Do veniam ex non occaecat reprehenderit consequat incididunt laboris. Commodo fugiat sint ea in officia ex elit pariatur pariatur amet veniam ea nulla amet."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

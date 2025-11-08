@@ -33,10 +33,10 @@ export default async function Footer() {
           <div className="flex items-center space-x-2">
             <PrismicNextImage
               field={data.brand_logo}
-              className="h-auto w-[60%] object-cover"
+              className="h-auto object-cover"
             />
           </div>
-          <p className="text-[15px] leading-relaxed text-gray-400">
+          <p className="text-[15px] leading-relaxed text-gray-300">
             {data.brand_motive}
           </p>
 
@@ -57,9 +57,9 @@ export default async function Footer() {
         </div>
 
         {/* COLUMN 2 - About Us */}
-        <div className="ms-10">
+        <div className="md:ms-10">
           <h2 className="mb-4 text-xl font-semibold uppercase">About Us</h2>
-          <ul className="space-y-2 text-sm text-gray-400">
+          <ul className="space-y-1.5 text-sm text-gray-300">
             {data.about_us_links.map((item, i) => (
               <li key={i}>
                 <PrismicNextLink
@@ -74,7 +74,7 @@ export default async function Footer() {
         {/* COLUMN 3 - Support */}
         <div>
           <h2 className="mb-4 text-xl font-semibold uppercase">Support</h2>
-          <ul className="space-y-2 text-sm text-gray-400">
+          <ul className="space-y-1.5 text-sm text-gray-300">
             {data.support_links.map((item, i) => (
               <li key={i}>
                 <PrismicNextLink
@@ -89,7 +89,7 @@ export default async function Footer() {
         {/* COLUMN 4 - Contact Us */}
         <div>
           <h2 className="mb-4 text-xl font-semibold uppercase">Contact Us</h2>
-          <ul className="space-y-2 text-sm text-gray-400">
+          <ul className="space-y-1.5 text-sm text-gray-300">
             {data.contact_us_links.map((item, i) => (
               <li key={i}>
                 <PrismicNextLink

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 type CartBtnProps = {
   children: React.ReactNode;
@@ -26,6 +27,8 @@ export default function CartBtn({ children, product_detail }: CartBtnProps) {
         quantity: 1,
       },
     });
+
+    toast.success(`${product_detail.name} added to cart!`, { duration: 2000 });
   };
 
   return (

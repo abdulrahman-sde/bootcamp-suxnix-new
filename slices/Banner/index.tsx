@@ -16,15 +16,15 @@ const Banner: FC<BannerProps> = ({ slice }) => {
         style={{
           backgroundImage: `url(${slice.primary.background?.url})`,
         }}
-        className="relative mb-[110px] h-[490px] w-full bg-cover bg-center bg-no-repeat"
+        className="relative mb-[110px] h-[470px] w-full bg-cover bg-center bg-no-repeat"
       >
         <div className="absolute inset-0 bg-black opacity-80"></div>
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-4 text-white">
-          <h1 className="text-5xl font-bold tracking-wide uppercase md:text-6xl">
+          <h1 className="text-5xl font-medium tracking-wide uppercase md:text-6xl">
             {slice.primary.heading}
           </h1>
-          <div className="flex items-center gap-3 text-2xl">
+          <div className="mt-1 flex items-center gap-3 text-[28px]">
             <PrismicNextLink field={slice.primary.home} />
             <span>|</span>
             <PrismicNextLink field={slice.primary.second} />

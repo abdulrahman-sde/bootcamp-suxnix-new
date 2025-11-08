@@ -1160,7 +1160,7 @@ export interface ProductDetailsDocumentDataCategoriesItem {
   category: prismic.KeyTextField;
 }
 
-type ProductDetailsDocumentDataSlicesSlice = BannerSlice;
+type ProductDetailsDocumentDataSlicesSlice = TabbedContentSlice | BannerSlice;
 
 /**
  * Content for Product Details documents
@@ -3103,9 +3103,50 @@ type OffersSliceVariation = OffersSliceDefault;
 export type OffersSlice = prismic.SharedSlice<"offers", OffersSliceVariation>;
 
 /**
+ * Item in *ProfileSidebar → Profile with Search and Feed → Primary → Social Links*
+ */
+export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimarySocialLinksItem {
+  /**
+   * Icon field in *ProfileSidebar → Profile with Search and Feed → Primary → Social Links*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.social_links[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Link field in *ProfileSidebar → Profile with Search and Feed → Primary → Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.social_links[].lin
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  lin: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
  * Item in *ProfileSidebar → Profile with Search and Feed → Primary → Feed Items*
  */
 export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem {
+  /**
+   * Blog Detail Link field in *ProfileSidebar → Profile with Search and Feed → Primary → Feed Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.feed_items[].blog_detail_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  blog_detail_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
   /**
    * Feed Image field in *ProfileSidebar → Profile with Search and Feed → Primary → Feed Items*
    *
@@ -3135,6 +3176,61 @@ export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem
    * - **Documentation**: https://prismic.io/docs/fields/date
    */
   feed_date: prismic.DateField;
+}
+
+/**
+ * Item in *ProfileSidebar → Profile with Search and Feed → Primary → Categories Data*
+ */
+export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimaryCategoriesDataItem {
+  /**
+   * Category Label field in *ProfileSidebar → Profile with Search and Feed → Primary → Categories Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.categories_data[].category_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category_label: prismic.KeyTextField;
+
+  /**
+   * Total Blogs field in *ProfileSidebar → Profile with Search and Feed → Primary → Categories Data*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.categories_data[].total_blogs
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  total_blogs: prismic.NumberField;
+}
+
+/**
+ * Item in *ProfileSidebar → Profile with Search and Feed → Primary → Images*
+ */
+export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimaryImagesItem {
+  /**
+   * Feed Image field in *ProfileSidebar → Profile with Search and Feed → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.images[].feed_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  feed_image: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *ProfileSidebar → Profile with Search and Feed → Primary → Tags*
+ */
+export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimaryTagsItem {
+  /**
+   * Tag field in *ProfileSidebar → Profile with Search and Feed → Primary → Tags*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.tags[].tag
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tag: prismic.KeyTextField;
 }
 
 /**
@@ -3182,21 +3278,15 @@ export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimary {
   profile_description: prismic.RichTextField;
 
   /**
-   * Profile Social Links field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   * Social Links field in *ProfileSidebar → Profile with Search and Feed → Primary*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.profile_social_links
-   * - **Documentation**: https://prismic.io/docs/fields/link
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.social_links[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  profile_social_links: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "facebook" | "twitter" | "pinterest" | "behance"
-    >
+  social_links: prismic.GroupField<
+    Simplify<ProfileSidebarSliceProfileWithSearchAndFeedPrimarySocialLinksItem>
   >;
 
   /**
@@ -3241,6 +3331,72 @@ export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   is_blog_sidebar: prismic.BooleanField;
+
+  /**
+   * Categories Heading field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.categories
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  categories: prismic.KeyTextField;
+
+  /**
+   * Categories Data field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.categories_data[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  categories_data: prismic.GroupField<
+    Simplify<ProfileSidebarSliceProfileWithSearchAndFeedPrimaryCategoriesDataItem>
+  >;
+
+  /**
+   * Instagram Feeds Heading field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.instagram_feeds_headinf
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  instagram_feeds_headinf: prismic.KeyTextField;
+
+  /**
+   * Images field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<
+    Simplify<ProfileSidebarSliceProfileWithSearchAndFeedPrimaryImagesItem>
+  >;
+
+  /**
+   * Popular Tags heading field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.popular_tags_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  popular_tags_heading: prismic.KeyTextField;
+
+  /**
+   * Tags field in *ProfileSidebar → Profile with Search and Feed → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: profile_sidebar.profile_with_search_and_feed.primary.tags[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tags: prismic.GroupField<
+    Simplify<ProfileSidebarSliceProfileWithSearchAndFeedPrimaryTagsItem>
+  >;
 }
 
 /**
@@ -3901,6 +4057,79 @@ export type SidebarWidgetsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *TabbedContent → Tab With Rich Text and List → Primary → Tabs*
+ */
+export interface TabbedContentSliceTabWithRichTextAndListPrimaryTabsItem {
+  /**
+   * Tab Label field in *TabbedContent → Tab With Rich Text and List → Primary → Tabs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tabbed_content.tab_with_rich_text_and_list.primary.tabs[].tab_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tab_label: prismic.KeyTextField;
+
+  /**
+   * body field in *TabbedContent → Tab With Rich Text and List → Primary → Tabs*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tabbed_content.tab_with_rich_text_and_list.primary.tabs[].body
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *TabbedContent → Tab With Rich Text and List → Primary*
+ */
+export interface TabbedContentSliceTabWithRichTextAndListPrimary {
+  /**
+   * Tabs field in *TabbedContent → Tab With Rich Text and List → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tabbed_content.tab_with_rich_text_and_list.primary.tabs[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  tabs: prismic.GroupField<
+    Simplify<TabbedContentSliceTabWithRichTextAndListPrimaryTabsItem>
+  >;
+}
+
+/**
+ * Tab With Rich Text and List variation for TabbedContent Slice
+ *
+ * - **API ID**: `tab_with_rich_text_and_list`
+ * - **Description**: Each tab displays a title, structured content with headings and paragraphs, and a bullet list. Suitable for feature breakdowns or product explanations with basic editorial formatting per tab.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TabbedContentSliceTabWithRichTextAndList =
+  prismic.SharedSliceVariation<
+    "tab_with_rich_text_and_list",
+    Simplify<TabbedContentSliceTabWithRichTextAndListPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *TabbedContent*
+ */
+type TabbedContentSliceVariation = TabbedContentSliceTabWithRichTextAndList;
+
+/**
+ * TabbedContent Shared Slice
+ *
+ * - **API ID**: `tabbed_content`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TabbedContentSlice = prismic.SharedSlice<
+  "tabbed_content",
+  TabbedContentSliceVariation
+>;
+
+/**
  * Item in *WhyChooseUs → Default → Primary → Benefits*
  */
 export interface WhyChooseUsSliceDefaultPrimaryBefenItem {
@@ -4157,7 +4386,11 @@ declare module "@prismicio/client" {
       OffersSliceVariation,
       OffersSliceDefault,
       ProfileSidebarSlice,
+      ProfileSidebarSliceProfileWithSearchAndFeedPrimarySocialLinksItem,
       ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem,
+      ProfileSidebarSliceProfileWithSearchAndFeedPrimaryCategoriesDataItem,
+      ProfileSidebarSliceProfileWithSearchAndFeedPrimaryImagesItem,
+      ProfileSidebarSliceProfileWithSearchAndFeedPrimaryTagsItem,
       ProfileSidebarSliceProfileWithSearchAndFeedPrimary,
       ProfileSidebarSliceVariation,
       ProfileSidebarSliceProfileWithSearchAndFeed,
@@ -4178,6 +4411,11 @@ declare module "@prismicio/client" {
       SidebarWidgetsSliceDefaultPrimary,
       SidebarWidgetsSliceVariation,
       SidebarWidgetsSliceDefault,
+      TabbedContentSlice,
+      TabbedContentSliceTabWithRichTextAndListPrimaryTabsItem,
+      TabbedContentSliceTabWithRichTextAndListPrimary,
+      TabbedContentSliceVariation,
+      TabbedContentSliceTabWithRichTextAndList,
       WhyChooseUsSlice,
       WhyChooseUsSliceDefaultPrimaryBefenItem,
       WhyChooseUsSliceDefaultPrimary,

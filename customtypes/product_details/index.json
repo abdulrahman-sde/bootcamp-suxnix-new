@@ -133,6 +133,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "tabbed_content": {
+              "type": "SharedSlice"
+            },
             "banner": {
               "type": "SharedSlice"
             }
