@@ -23,12 +23,26 @@ const LogoRow: FC<LogoRowProps> = ({ slice }) => {
       </div>
 
       {/* Logos Row */}
-      <div className="flex flex-wrap items-center justify-center gap-20">
-        {slice.primary.logos?.map((item, i) => (
-          <div key={i} className="transition hover:opacity-100">
-            <PrismicNextImage field={item.logo} className="h-10" />
-          </div>
-        ))}
+      {/* Logos Marquee */}
+      <div className="relative overflow-hidden py-4">
+        <div className="marquee flex items-center gap-20">
+          {slice.primary.logos?.map((item, i) => (
+            <PrismicNextImage
+              key={i}
+              field={item.logo}
+              className="h-10 transition-all"
+            />
+          ))}
+
+          {/* Duplicate logos for smooth infinite scroll */}
+          {slice.primary.logos?.map((item, i) => (
+            <PrismicNextImage
+              key={`dup-${i}`}
+              field={item.logo}
+              className="h-10"
+            />
+          ))}
+        </div>
       </div>
     </Container>
   );

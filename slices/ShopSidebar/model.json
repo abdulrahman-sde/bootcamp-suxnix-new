@@ -1,0 +1,143 @@
+{
+  "type": "SharedSlice",
+  "id": "shop_sidebar",
+  "name": "ShopSidebar",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard sidebar layout combining price filter, category list, recent products, and tags.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "filter_by_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Filter By Heading",
+            "placeholder": ""
+          }
+        },
+        "price_min": {
+          "type": "Number",
+          "config": {
+            "label": "Price Minimum"
+          }
+        },
+        "price_max": {
+          "type": "Number",
+          "config": {
+            "label": "Price Maximum"
+          }
+        },
+        "filter_btn_label": {
+          "type": "Text",
+          "config": {
+            "label": "Filter Btn Label",
+            "placeholder": ""
+          }
+        },
+        "categories_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Categories Heading",
+            "placeholder": ""
+          }
+        },
+        "categories": {
+          "type": "Group",
+          "config": {
+            "label": "Categories",
+            "fields": {
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name"
+                }
+              }
+            }
+          }
+        },
+        "latest_products_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Latest Products Heading",
+            "placeholder": ""
+          }
+        },
+        "latest_products": {
+          "type": "Group",
+          "config": {
+            "label": "Latest Products",
+            "fields": {
+              "product_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image"
+                }
+              },
+              "product_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Name"
+                }
+              },
+              "rating": {
+                "type": "Number",
+                "config": {
+                  "label": "Rating"
+                }
+              },
+              "price": {
+                "type": "Text",
+                "config": {
+                  "label": "Price"
+                }
+              },
+              "product_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Id",
+                  "placeholder": ""
+                }
+              },
+              "product_details_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Product Details Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "product_tags": {
+          "type": "Group",
+          "config": {
+            "label": "Product Tags",
+            "fields": {
+              "tag_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag Label"
+                }
+              }
+            }
+          }
+        },
+        "product_tags_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Product Tags heading",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

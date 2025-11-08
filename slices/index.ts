@@ -18,6 +18,7 @@ export const components = {
   offers: dynamic(() => import("./Offers")),
   profile_sidebar: dynamic(() => import("./ProfileSidebar")),
   shop_products: dynamic(() => import("./ShopProducts")),
+  shop_sidebar: dynamic(() => import("./ShopSidebar")),
   sidebar_widgets: dynamic(() => import("./SidebarWidgets")),
   why_choose_us: dynamic(() => import("./WhyChooseUs")),
 };

@@ -1,26 +1,78 @@
-import { FC } from "react";
+"use client";
+import { FC, useMemo, useState } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Sidebar from "@/componnets/FilteringSidebar";
 import Container from "@/componnets/Container";
 import CartBtn from "@/componnets/CartBtn";
+import { useShopFilters } from "@/contexts/FiltersContext";
 
 export type ShopProductsProps = SliceComponentProps<Content.ShopProductsSlice>;
 
 const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
+  const { priceRange, selectedCategory, setSelectedCategory, setPriceRange } =
+    useShopFilters();
+
+  const [sortBy, setSortBy] = useState<"rating" | "price-asc" | "price-desc">(
+    "rating",
+  );
+
+  const filteredProducts = useMemo(() => {
+    const base = slice.primary.products.filter((p) => {
+      const price = p.price ?? 0;
+      const inPrice = price >= priceRange[0] && price <= priceRange[1];
+      const inCategory = selectedCategory
+        ? p.category === selectedCategory
+        : true;
+      return inPrice && inCategory;
+    });
+
+    const sorted = [...base];
+    if (sortBy === "price-asc") {
+      sorted.sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
+    } else if (sortBy === "price-desc") {
+      sorted.sort((a, b) => (b.price ?? 0) - (a.price ?? 0));
+    } else {
+      // rating desc (default)
+      sorted.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+    }
+
+    return sorted;
+  }, [slice.primary.products, priceRange, selectedCategory, sortBy]);
   return (
-    <Container
+    <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex max-w-[1400px] flex-col gap-4 p-4 md:p-6 lg:flex-row"
+      className=""
     >
+      {/* TOP BAR: showing counts + sorting */}
+      <div className="font-roboto mb-4 flex w-full items-center justify-between border border-gray-200 px-4 py-2">
+        <div className="text-sm text-gray-600">
+          Showing 1-{filteredProducts.length} of {slice.primary.products.length}{" "}
+          results
+        </div>
+
+        <div className="flex items-center gap-2">
+          <label className="text-sm text-gray-600">Sort by</label>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as any)}
+            className="rounded border px-2 py-1 text-sm"
+          >
+            <option value="rating">Rating (Default) </option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
       {/* PRODUCTS */}
-      <div className="flex w-full flex-wrap justify-center gap-6">
-        {slice.primary.products.map((item) => (
+      <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {filteredProducts.map((item) => (
           <div
             key={item.product_id}
-            className="relative flex w-full max-w-[320px] flex-col justify-between border border-gray-100 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.05)]"
+            className="relative flex max-h-[433px] flex-col justify-center border border-gray-100 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.05)]"
           >
             {/* Discount Badge */}
             {item.chip && (
@@ -86,12 +138,7 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
           </div>
         ))}
       </div>
-
-      {/* SIDEBAR */}
-      <div className="w-full shrink-0 lg:w-[260px]">
-        <Sidebar />
-      </div>
-    </Container>
+    </section>
   );
 };
 

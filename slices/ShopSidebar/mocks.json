@@ -1,0 +1,158 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"price_min": {
+				"__TYPE__": "FieldContent",
+				"value": "54",
+				"type": "Number"
+			},
+			"price_max": {
+				"__TYPE__": "FieldContent",
+				"value": "59",
+				"type": "Number"
+			},
+			"categories": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "taught",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"latest_products": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"product_image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+										"width": 5243,
+										"height": 3495
+									},
+									"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+									"width": 5243,
+									"height": 3495,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "kind",
+									"credits": null,
+									"__TYPE__": "ImageContent"
+								}
+							],
+							[
+								"product_name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "situation",
+									"type": "Text"
+								}
+							],
+							[
+								"rating",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "52",
+									"type": "Number"
+								}
+							],
+							[
+								"price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "needed",
+									"type": "Text"
+								}
+							],
+							[
+								"product_id",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "like",
+									"type": "Text"
+								}
+							],
+							[
+								"product_details_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "66ce6070-9bf5-4e7c-b28f-8c48ac9fba6d",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"product_tags": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"tag_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "driving",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"filter_by_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "hang",
+				"type": "Text"
+			},
+			"latest_products_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "accurate",
+				"type": "Text"
+			},
+			"filter_btn_label": {
+				"__TYPE__": "FieldContent",
+				"value": "course",
+				"type": "Text"
+			},
+			"categories_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "become",
+				"type": "Text"
+			},
+			"product_tags_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "leader",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

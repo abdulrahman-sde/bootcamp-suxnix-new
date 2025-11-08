@@ -1342,7 +1342,10 @@ export type ProductDetailsDocument<Lang extends string = string> =
     Lang
   >;
 
-type ShopDocumentDataSlicesSlice = ShopProductsSlice | BannerSlice;
+type ShopDocumentDataSlicesSlice =
+  | ShopSidebarSlice
+  | ShopProductsSlice
+  | BannerSlice;
 
 /**
  * Content for Shop documents
@@ -3430,6 +3433,248 @@ export type ShopProductsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ShopSidebar → Default → Primary → Categories*
+ */
+export interface ShopSidebarSliceDefaultPrimaryCategoriesItem {
+  /**
+   * Name field in *ShopSidebar → Default → Primary → Categories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.categories[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Item in *ShopSidebar → Default → Primary → Latest Products*
+ */
+export interface ShopSidebarSliceDefaultPrimaryLatestProductsItem {
+  /**
+   * Product Image field in *ShopSidebar → Default → Primary → Latest Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products[].product_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  product_image: prismic.ImageField<never>;
+
+  /**
+   * Product Name field in *ShopSidebar → Default → Primary → Latest Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products[].product_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_name: prismic.KeyTextField;
+
+  /**
+   * Rating field in *ShopSidebar → Default → Primary → Latest Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products[].rating
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  rating: prismic.NumberField;
+
+  /**
+   * Price field in *ShopSidebar → Default → Primary → Latest Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products[].price
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  price: prismic.KeyTextField;
+
+  /**
+   * Product Id field in *ShopSidebar → Default → Primary → Latest Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products[].product_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_id: prismic.KeyTextField;
+
+  /**
+   * Product Details Link field in *ShopSidebar → Default → Primary → Latest Products*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products[].product_details_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  product_details_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Item in *ShopSidebar → Default → Primary → Product Tags*
+ */
+export interface ShopSidebarSliceDefaultPrimaryProductTagsItem {
+  /**
+   * Tag Label field in *ShopSidebar → Default → Primary → Product Tags*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.product_tags[].tag_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tag_label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ShopSidebar → Default → Primary*
+ */
+export interface ShopSidebarSliceDefaultPrimary {
+  /**
+   * Filter By Heading field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.filter_by_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  filter_by_heading: prismic.KeyTextField;
+
+  /**
+   * Price Minimum field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.price_min
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  price_min: prismic.NumberField;
+
+  /**
+   * Price Maximum field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.price_max
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  price_max: prismic.NumberField;
+
+  /**
+   * Filter Btn Label field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.filter_btn_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  filter_btn_label: prismic.KeyTextField;
+
+  /**
+   * Categories Heading field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.categories_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  categories_heading: prismic.KeyTextField;
+
+  /**
+   * Categories field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.categories[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  categories: prismic.GroupField<
+    Simplify<ShopSidebarSliceDefaultPrimaryCategoriesItem>
+  >;
+
+  /**
+   * Latest Products Heading field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  latest_products_heading: prismic.KeyTextField;
+
+  /**
+   * Latest Products field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.latest_products[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  latest_products: prismic.GroupField<
+    Simplify<ShopSidebarSliceDefaultPrimaryLatestProductsItem>
+  >;
+
+  /**
+   * Product Tags field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.product_tags[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  product_tags: prismic.GroupField<
+    Simplify<ShopSidebarSliceDefaultPrimaryProductTagsItem>
+  >;
+
+  /**
+   * Product Tags heading field in *ShopSidebar → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: shop_sidebar.default.primary.product_tags_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_tags_heading: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ShopSidebar Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard sidebar layout combining price filter, category list, recent products, and tags.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ShopSidebarSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ShopSidebarSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ShopSidebar*
+ */
+type ShopSidebarSliceVariation = ShopSidebarSliceDefault;
+
+/**
+ * ShopSidebar Shared Slice
+ *
+ * - **API ID**: `shop_sidebar`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ShopSidebarSlice = prismic.SharedSlice<
+  "shop_sidebar",
+  ShopSidebarSliceVariation
+>;
+
+/**
  * Item in *SidebarWidgets → Default → Primary → Widgets*
  */
 export interface SidebarWidgetsSliceDefaultPrimaryWidgetsItem {
@@ -3921,6 +4166,13 @@ declare module "@prismicio/client" {
       ShopProductsSliceDefaultPrimary,
       ShopProductsSliceVariation,
       ShopProductsSliceDefault,
+      ShopSidebarSlice,
+      ShopSidebarSliceDefaultPrimaryCategoriesItem,
+      ShopSidebarSliceDefaultPrimaryLatestProductsItem,
+      ShopSidebarSliceDefaultPrimaryProductTagsItem,
+      ShopSidebarSliceDefaultPrimary,
+      ShopSidebarSliceVariation,
+      ShopSidebarSliceDefault,
       SidebarWidgetsSlice,
       SidebarWidgetsSliceDefaultPrimaryWidgetsItem,
       SidebarWidgetsSliceDefaultPrimary,

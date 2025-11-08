@@ -25,6 +25,20 @@ body {
 p,span,li{
   font-family: var(--font-roboto)
 }
+.marquee {
+  width: max-content;
+  animation: marquee-scroll 20s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 li{
   font-weight:500;
   font-size:16px;
