@@ -88,8 +88,8 @@ const CheckoutForm2: FC<CheckoutForm2Props> = ({ slice }) => {
   };
 
   return (
-    <Container className="mx-auto flex w-full gap-10 px-4 py-12">
-      <div className="w-full max-w-[70%] border border-gray-200 p-6">
+    <Container className="mx-auto flex w-full flex-col gap-10 px-4 py-12 md:flex-row">
+      <div className="w-full border border-gray-200 p-6 md:max-w-[70%]">
         <h1 className="mb-6 border-b pb-2 text-2xl font-bold tracking-wide uppercase">
           {slice.primary.billing_detail_heading}
         </h1>

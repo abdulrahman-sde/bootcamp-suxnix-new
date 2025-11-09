@@ -17,7 +17,7 @@ const ShopSidebar: FC<ShopSidebarProps> = ({ slice }) => {
 
   return (
     <aside
-      className="w-full max-w-[30%] space-y-4 lg:max-w-[25%]"
+      className="w-full space-y-4 md:max-w-[30%] lg:max-w-[25%]"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

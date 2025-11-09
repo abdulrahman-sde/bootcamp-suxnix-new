@@ -34,7 +34,7 @@ export default function PlaceOrder({ onPlaceOrder, offer }: PlaceOrderProps) {
   }, 0);
 
   return (
-    <div className="text-black-200 border-primary max-h-fit w-full max-w-[30%] border-[1.5px] p-6">
+    <div className="text-black-200 border-primary max-h-fit w-full border-[1.5px] p-6 md:max-w-[30%]">
       <h2 className="mb-4 text-2xl font-extrabold tracking-wide">YOUR ORDER</h2>
 
       <div className="border-black-700 text-black-400 flex justify-between border-b border-b-gray-200 pb-2 text-sm font-semibold">

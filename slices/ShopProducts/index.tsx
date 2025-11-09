@@ -42,7 +42,7 @@ const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mb-40"
+      className="mb-40 md:min-w-[70%]"
     >
       {/* TOP BAR: showing counts + sorting */}
       <div className="font-roboto mb-4 flex w-full items-center justify-between border border-gray-200 px-5 py-3">

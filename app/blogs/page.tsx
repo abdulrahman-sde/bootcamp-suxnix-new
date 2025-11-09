@@ -21,7 +21,7 @@ export default async function Page() {
       <SliceZone slices={firstSlices} components={components} />
 
       {/* Wrap last two slices in a container */}
-      <div className="mx-auto flex max-w-[1320px] px-4">
+      <div className="mx-auto flex max-w-[1320px] flex-col gap-2 px-4 md:flex-row">
         <SliceZone slices={lastTwoSlices} components={components} />
       </div>
     </div>

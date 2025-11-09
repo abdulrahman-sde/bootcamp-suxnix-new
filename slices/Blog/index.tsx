@@ -11,7 +11,7 @@ const Blog: FC<BlogProps> = ({ slice }) => {
     <span
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full max-w-[70%]"
+      className="w-full md:max-w-[70%]"
     >
       {slice.primary.blogs.map((item, idx) => (
         <article
