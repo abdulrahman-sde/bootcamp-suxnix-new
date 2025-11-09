@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${oswald.variable} ${roboto.variable} antialiased`}>
         <CartProvider>
-          <Toaster position="top-right" richColors />
+          <Toaster position="bottom-right" richColors />
           {children}
         </CartProvider>
         <Footer />

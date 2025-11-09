@@ -35,11 +35,13 @@ const FeatureHero: FC<FeatureHeroProps> = ({ slice }) => {
           />
           <div className="relative flex h-[260px] w-full justify-center md:h-auto">
             <PrismicNextImage
+              preload
               field={slice.primary.green_background}
               className="invisible h-auto w-full max-w-[1124px] md:visible md:block"
             />
 
             <PrismicNextImage
+              preload
               field={slice.primary.product_image}
               className="absolute top-8 w-[300px] md:top-30 md:w-[549px]"
             />

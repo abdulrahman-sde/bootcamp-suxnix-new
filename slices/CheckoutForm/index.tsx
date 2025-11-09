@@ -8,6 +8,7 @@ import PlaceOrder from "@/componnets/PlaceOrder";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 import { useSearchParams } from "next/navigation";
+import { CheckoutSchema } from "@/lib/zodSchema";
 
 export type CheckoutForm2Props =
   SliceComponentProps<Content.CheckoutForm2Slice>;
@@ -49,16 +50,16 @@ const CheckoutForm2: FC<CheckoutForm2Props> = ({ slice }) => {
 
   const handleSubmit = async () => {
     // ✅ Validate using Zod
-    // const validation = CheckoutSchema.safeParse(formData);
+    const validation = CheckoutSchema.safeParse(formData);
 
-    // if (!validation.success) {
-    //   const errors = validation.error.issues;
-    //   toast.error(
-    //     `${errors[0].message}
-    //   `,
-    //   );
-    //   return false;
-    // }
+    if (!validation.success) {
+      const errors = validation.error.issues;
+      toast.error(
+        `${errors[0].message}
+      `,
+      );
+      return false;
+    }
 
     // ✅ Payload: offer or cart
     const payload = offer ? { items: [offer] } : { items: state.items };
@@ -107,6 +108,7 @@ const CheckoutForm2: FC<CheckoutForm2Props> = ({ slice }) => {
                   </label>
                   <input
                     name={fieldName}
+                    required={item.required}
                     type={item.type || "text"}
                     placeholder={item.placeholder || ""}
                     value={formData[fieldName]}
@@ -123,6 +125,7 @@ const CheckoutForm2: FC<CheckoutForm2Props> = ({ slice }) => {
               <label className="text-sm font-medium">Country / Region *</label>
               <select
                 name="country"
+                required
                 value={formData.country}
                 onChange={handleChange}
                 className="mt-1 w-full rounded-sm bg-[#F5F5F5] px-3 py-2.5 text-[14px] focus:ring-2 focus:ring-gray-700"

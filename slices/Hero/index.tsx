@@ -33,6 +33,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         {/* Optional Clouds */}
         {slice.primary.clouds?.url && (
           <PrismicNextImage
+            preload
             field={slice.primary.clouds}
             className="absolute top-0 left-0 h-auto w-full opacity-90"
           />
@@ -67,6 +68,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           {/* Right Product Image */}
           <div className="mt-10 flex justify-center md:mt-0 md:w-1/2">
             <PrismicNextImage
+              preload
               field={slice.primary.product_image}
               className="h-auto w-[340px] object-contain md:w-[420px] lg:w-[600px]"
             />
@@ -76,6 +78,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         {/* Bottom Shape */}
         {slice.primary.bottom_shaper?.url && (
           <PrismicNextImage
+            preload
             field={slice.primary.bottom_shaper}
             className="absolute bottom-0 left-0 w-full select-none"
           />
@@ -93,6 +96,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               >
                 <div className="mt-2 mb-11 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-b from-[#94BE26] to-[#62AF21] text-white md:mt-4 lg:h-24 lg:w-24">
                   <PrismicNextImage
+                    preload
                     field={item.icon}
                     className="h-9 w-9 object-contain md:h-12 md:w-12"
                   />
