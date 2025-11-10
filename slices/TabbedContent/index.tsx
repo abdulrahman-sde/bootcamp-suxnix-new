@@ -44,7 +44,7 @@ const TabbedContent: FC<TabbedContentProps> = ({ slice }) => {
 
       {/* Tab Content */}
       <div className="mt-8 max-w-[900px]">
-        <div className="prose prose-headings:text-gray-900 prose-headings:uppercase prose-headings:tracking-wide prose-headings:mb-5 prose-headings:font-medium prose-headings:text-3xl prose-p:font-roboto prose-p:text-[15px] prose-li:my-0 prose-p:text-gray-600 prose-p:leading-relaxed prose-ul:font-roboto prose-ul:text-gray-600 max-w-none">
+        <div className="prose prose-headings:text-gray-900 prose-headings:uppercase prose-headings:tracking-wide prose-headings:mb-5 prose-headings:font-medium prose-headings:text-[25px] prose-p:font-roboto prose-p:text-[15px] prose-li:my-0 prose-p:text-gray-600 prose-p:leading-relaxed prose-ul:font-roboto prose-ul:text-gray-600 max-w-none">
           <PrismicRichText field={slice.primary.tabs[activeTab].body} />
         </div>
       </div>

@@ -1,0 +1,95 @@
+{
+  "type": "SharedSlice",
+  "id": "product_carousel",
+  "name": "ProductCarousel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard carousel for multiple product cards with navigation arrows and pagination indicators.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "related_products_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Related Products Heading",
+            "placeholder": ""
+          }
+        },
+        "products": {
+          "type": "Group",
+          "config": {
+            "label": "Products",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image"
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Discount/Badge Label"
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Name"
+                }
+              },
+              "rating_value": {
+                "type": "Number",
+                "config": {
+                  "label": "Rating Value"
+                }
+              },
+              "rating_count": {
+                "type": "Number",
+                "config": {
+                  "label": "Rating Count"
+                }
+              },
+              "price": {
+                "type": "Number",
+                "config": {
+                  "label": "Product Price",
+                  "placeholder": ""
+                }
+              },
+              "bg_color": {
+                "type": "Text",
+                "config": {
+                  "label": "bg color",
+                  "placeholder": ""
+                }
+              },
+              "product_detail_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Product Detail Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
+              },
+              "product_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Product Id",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

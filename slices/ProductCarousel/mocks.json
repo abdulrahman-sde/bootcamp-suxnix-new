@@ -1,0 +1,116 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"products": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+										"width": 3500,
+										"height": 2338
+									},
+									"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+									"width": 3500,
+									"height": 2338,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "package",
+									"credits": null,
+									"__TYPE__": "ImageContent"
+								}
+							],
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "environment",
+									"type": "Text"
+								}
+							],
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "sea",
+									"type": "Text"
+								}
+							],
+							[
+								"rating_value",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "64",
+									"type": "Number"
+								}
+							],
+							[
+								"rating_count",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "68",
+									"type": "Number"
+								}
+							],
+							[
+								"price",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "7",
+									"type": "Number"
+								}
+							],
+							[
+								"bg_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "warn",
+									"type": "Text"
+								}
+							],
+							[
+								"product_detail_link",
+								{
+									"key": "df416f22-6bca-4d32-bb59-2af64b4f1cb0",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io"
+									}
+								}
+							],
+							[
+								"product_id",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "shirt",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"related_products_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "come",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

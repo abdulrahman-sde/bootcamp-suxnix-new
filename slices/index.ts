@@ -16,6 +16,7 @@ export const components = {
   ingredients: dynamic(() => import("./Ingredients")),
   logo_row: dynamic(() => import("./LogoRow")),
   offers: dynamic(() => import("./Offers")),
+  product_carousel: dynamic(() => import("./ProductCarousel")),
   profile_sidebar: dynamic(() => import("./ProfileSidebar")),
   shop_products: dynamic(() => import("./ShopProducts")),
   shop_sidebar: dynamic(() => import("./ShopSidebar")),

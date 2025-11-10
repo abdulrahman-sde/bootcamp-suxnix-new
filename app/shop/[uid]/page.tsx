@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
   const firstSlices = slices.slice(0, 1); // all except last 2
   const remainingSlices = slices.slice(1); // remaining slices
-
+  console.log(page.data);
   return (
     <>
       <SliceZone slices={firstSlices} components={components} />
@@ -120,7 +120,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             {/* Quantity + Add to Cart */}
             <ProductDetailCartBtn
               product={{
-                product_id: page.uid,
+                product_id: page.data.product_id ?? "",
                 name: page.data.name ?? "",
                 price: page.data.price ?? 0,
                 image: page.data.product_images[0]?.product_image.url ?? "",

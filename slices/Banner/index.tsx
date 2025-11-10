@@ -31,7 +31,7 @@ const Banner: FC<BannerProps> = ({ slice }) => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 z-50 w-full">
+        <div className="absolute bottom-0 left-0 z-20 w-full">
           <PrismicNextImage
             field={slice.primary.bottom_image}
             className="w-full select-none"

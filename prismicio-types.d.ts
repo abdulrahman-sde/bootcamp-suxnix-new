@@ -1160,7 +1160,10 @@ export interface ProductDetailsDocumentDataCategoriesItem {
   category: prismic.KeyTextField;
 }
 
-type ProductDetailsDocumentDataSlicesSlice = TabbedContentSlice | BannerSlice;
+type ProductDetailsDocumentDataSlicesSlice =
+  | ProductCarouselSlice
+  | TabbedContentSlice
+  | BannerSlice;
 
 /**
  * Content for Product Details documents
@@ -1282,6 +1285,17 @@ interface ProductDetailsDocumentData {
   categories: prismic.GroupField<
     Simplify<ProductDetailsDocumentDataCategoriesItem>
   >;
+
+  /**
+   * Product Id field in *Product Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_details.product_id
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_id: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Product Details*
@@ -3103,6 +3117,164 @@ type OffersSliceVariation = OffersSliceDefault;
 export type OffersSlice = prismic.SharedSlice<"offers", OffersSliceVariation>;
 
 /**
+ * Item in *ProductCarousel → Default → Primary → Products*
+ */
+export interface ProductCarouselSliceDefaultPrimaryProductsItem {
+  /**
+   * Product Image field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Discount/Badge Label field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Product Name field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Rating Value field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].rating_value
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  rating_value: prismic.NumberField;
+
+  /**
+   * Rating Count field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].rating_count
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  rating_count: prismic.NumberField;
+
+  /**
+   * Product Price field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].price
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  price: prismic.NumberField;
+
+  /**
+   * bg color field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].bg_color
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  bg_color: prismic.KeyTextField;
+
+  /**
+   * Product Detail Link field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].product_detail_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  product_detail_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Product Id field in *ProductCarousel → Default → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[].product_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  product_id: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ProductCarousel → Default → Primary*
+ */
+export interface ProductCarouselSliceDefaultPrimary {
+  /**
+   * Related Products Heading field in *ProductCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.related_products_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  related_products_heading: prismic.KeyTextField;
+
+  /**
+   * Products field in *ProductCarousel → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_carousel.default.primary.products[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  products: prismic.GroupField<
+    Simplify<ProductCarouselSliceDefaultPrimaryProductsItem>
+  >;
+}
+
+/**
+ * Default variation for ProductCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard carousel for multiple product cards with navigation arrows and pagination indicators.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProductCarouselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductCarouselSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductCarousel*
+ */
+type ProductCarouselSliceVariation = ProductCarouselSliceDefault;
+
+/**
+ * ProductCarousel Shared Slice
+ *
+ * - **API ID**: `product_carousel`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProductCarouselSlice = prismic.SharedSlice<
+  "product_carousel",
+  ProductCarouselSliceVariation
+>;
+
+/**
  * Item in *ProfileSidebar → Profile with Search and Feed → Primary → Social Links*
  */
 export interface ProfileSidebarSliceProfileWithSearchAndFeedPrimarySocialLinksItem {
@@ -4385,6 +4557,11 @@ declare module "@prismicio/client" {
       OffersSliceDefaultPrimary,
       OffersSliceVariation,
       OffersSliceDefault,
+      ProductCarouselSlice,
+      ProductCarouselSliceDefaultPrimaryProductsItem,
+      ProductCarouselSliceDefaultPrimary,
+      ProductCarouselSliceVariation,
+      ProductCarouselSliceDefault,
       ProfileSidebarSlice,
       ProfileSidebarSliceProfileWithSearchAndFeedPrimarySocialLinksItem,
       ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem,

@@ -21,6 +21,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-oswald), sans-serif;
 }
+.drawer{
+  z-index: 9999999;
+}
 
 p,span,li{
   font-family: var(--font-roboto)

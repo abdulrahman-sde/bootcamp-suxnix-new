@@ -11,7 +11,7 @@ export type ShopProductsProps = SliceComponentProps<Content.ShopProductsSlice>;
 
 const ShopProducts: FC<ShopProductsProps> = ({ slice }) => {
   const { priceRange, selectedCategory } = useShopFilters();
-
+  console.log(slice.primary.products);
   const [sortBy, setSortBy] = useState<"rating" | "price-asc" | "price-desc">(
     "rating",
   );

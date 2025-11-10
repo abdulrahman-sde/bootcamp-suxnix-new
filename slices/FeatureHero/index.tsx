@@ -21,7 +21,7 @@ const FeatureHero: FC<FeatureHeroProps> = ({ slice }) => {
         <Container
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className="flex flex-col items-center px-4"
+          className="-z-10 flex flex-col items-center px-4"
         >
           <p className="text-primary font-roboto mb-4 text-[15.5px] font-bold tracking-[1.425px] md:mb-8 md:text-[18px]">
             {slice.primary.tagline}

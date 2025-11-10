@@ -102,6 +102,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [state, dispatch] = useReducer(cartReducer, { items: [], total: 0 });
+  console.log("Cart State:", state); // Debugging line
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       {children}

@@ -128,11 +128,21 @@
           }
         }
       },
+      "product_id": {
+        "type": "Text",
+        "config": {
+          "label": "Product Id",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "product_carousel": {
+              "type": "SharedSlice"
+            },
             "tabbed_content": {
               "type": "SharedSlice"
             },
