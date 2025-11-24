@@ -13,7 +13,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden px-6"
         style={{
           backgroundImage: `url(${slice.primary.background?.url})`,
           backgroundAttachment: "fixed",
@@ -87,7 +87,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
       {/* Cards Section */}
       {slice.primary.hero_cards && slice.primary.hero_cards.length > 0 && (
-        <div className="relative top-[-120px] z-20 mt-20 w-full px-6 pb-20 md:mt-0">
+        <div className="relative top-[-120px] z-20 mt-20 w-full px-6 md:mt-0">
           <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-6 md:grid-cols-3">
             {slice.primary.hero_cards.map((item, i) => (
               <div

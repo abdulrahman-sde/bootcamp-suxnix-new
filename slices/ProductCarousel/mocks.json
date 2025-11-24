@@ -100,6 +100,13 @@
 									"value": "shirt",
 									"type": "Text"
 								}
+							],
+							[
+								"include_this",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
 							]
 						]
 					}

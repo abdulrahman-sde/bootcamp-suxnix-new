@@ -1,0 +1,76 @@
+{
+  "type": "SharedSlice",
+  "id": "testimonial_list",
+  "name": "TestimonialList",
+  "variations": [
+    {
+      "id": "grid_doctor_testimonials",
+      "name": "Doctor Testimonial Grid",
+      "description": "Displays testimonials in a grid layout, each including a doctor's image, star rating, title, supporting text, author, and posting time.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "testimonials": {
+          "type": "Group",
+          "config": {
+            "label": "Testimonials",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Doctor Image"
+                }
+              },
+              "rating": {
+                "type": "Number",
+                "config": {
+                  "label": "Rating"
+                }
+              },
+              "headline": {
+                "type": "Text",
+                "config": {
+                  "label": "Headline"
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description"
+                }
+              },
+              "author_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Author Name"
+                }
+              },
+              "timestamp": {
+                "type": "Text",
+                "config": {
+                  "label": "Time Ago"
+                }
+              }
+            }
+          }
+        },
+        "eye": {
+          "type": "Text",
+          "config": {
+            "label": "eyebrow",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

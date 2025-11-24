@@ -25,6 +25,15 @@
                 "constraint": {},
                 "thumbnails": []
               }
+            },
+            "is_primary": {
+              "type": "Boolean",
+              "config": {
+                "label": "Is Primary",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
             }
           }
         }

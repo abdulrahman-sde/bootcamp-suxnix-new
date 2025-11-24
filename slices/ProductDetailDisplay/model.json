@@ -1,0 +1,156 @@
+{
+  "type": "SharedSlice",
+  "id": "product_detail_display",
+  "name": "ProductDetailDisplay",
+  "variations": [
+    {
+      "id": "default_full_detail",
+      "name": "Default Full Detail",
+      "description": "Shows all core elements for a product detail page with related products carousel.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "main_product_image": {
+          "type": "Image",
+          "config": {
+            "label": "Main Product Image"
+          }
+        },
+        "product_rating": {
+          "type": "Number",
+          "config": {
+            "label": "Product Rating"
+          }
+        },
+        "review_count": {
+          "type": "Number",
+          "config": {
+            "label": "Review Count"
+          }
+        },
+        "in_stock": {
+          "type": "Boolean",
+          "config": {
+            "label": "In Stock"
+          }
+        },
+        "ordered_count": {
+          "type": "Number",
+          "config": {
+            "label": "Ordered Count"
+          }
+        },
+        "items_available": {
+          "type": "Number",
+          "config": {
+            "label": "Items Available"
+          }
+        },
+        "sku": {
+          "type": "Text",
+          "config": {
+            "label": "SKU"
+          }
+        },
+        "category": {
+          "type": "Text",
+          "config": {
+            "label": "Category"
+          }
+        },
+        "tags": {
+          "type": "Text",
+          "config": {
+            "label": "Tags"
+          }
+        },
+        "related_products": {
+          "type": "Group",
+          "config": {
+            "label": "Related Products",
+            "fields": {
+              "related_product_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Related Product Image"
+                }
+              }
+            }
+          }
+        },
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "product_title": {
+          "type": "Text",
+          "config": {
+            "label": "Product Title",
+            "placeholder": ""
+          }
+        },
+        "price": {
+          "type": "Number",
+          "config": {
+            "label": "Price",
+            "placeholder": ""
+          }
+        },
+        "product_description": {
+          "type": "Text",
+          "config": {
+            "label": "Product Description",
+            "placeholder": ""
+          }
+        },
+        "shipping_notes": {
+          "type": "Text",
+          "config": {
+            "label": "Shipping Notes",
+            "placeholder": ""
+          }
+        },
+        "return_notes": {
+          "type": "Text",
+          "config": {
+            "label": "Return Notes",
+            "placeholder": ""
+          }
+        },
+        "product_id": {
+          "type": "Text",
+          "config": {
+            "label": "Product Id",
+            "placeholder": ""
+          }
+        },
+        "add_to_cart": {
+          "type": "Text",
+          "config": {
+            "label": "Add to cart",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

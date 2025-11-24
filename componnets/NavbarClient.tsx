@@ -6,6 +6,7 @@ import Container from "./Container";
 import MobileMenu from "./MobileMenu";
 import CartItemsBadge from "./CartItemsBadge";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type NavData = any;
 
@@ -16,6 +17,7 @@ export default function NavbarClient({
   pageData: NavData;
   component: string;
 }) {
+  const pathname = usePathname();
   const navRef = useRef<HTMLElement | null>(null);
   const [isFixed, setIsFixed] = useState(false);
   const [navHeight, setNavHeight] = useState<number>(0);
@@ -89,19 +91,27 @@ export default function NavbarClient({
 
           {/* === Desktop Nav Links === */}
           <div className="hidden gap-13 md:flex">
-            {pageData.nav_links.map((item: any, idx: number) => (
-              <PrismicNextLink
-                key={idx}
-                field={item.nav_link}
-                className={`text-[16px] font-semibold tracking-wide transition-all duration-300 ${
-                  isFixed
-                    ? "text-[#777777] hover:text-[#0a9b4c]" // when scrolled
-                    : isLandingHero || isFeatureHero
-                      ? "text-[#777777] hover:text-[#0a9b4c]"
-                      : "text-white hover:text-[#0a9b4c]"
-                }`}
-              />
-            ))}
+            {pageData.nav_links.map((item: any, idx: number) => {
+              // Check if the link is active
+              // Note: item.nav_link.url is assumed to be the path
+              const isActive = pathname === item.nav_link.url;
+
+              return (
+                <PrismicNextLink
+                  key={idx}
+                  field={item.nav_link}
+                  className={`text-[16px] font-semibold tracking-wide transition-all duration-300 ${
+                    isActive
+                      ? "text-[#FAA432]"
+                      : isFixed
+                        ? "text-[#777777]"
+                        : isLandingHero || isFeatureHero
+                          ? "text-[#777777]"
+                          : "text-white"
+                  }`}
+                />
+              );
+            })}
           </div>
 
           {/* === Icons Section === */}

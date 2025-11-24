@@ -1,0 +1,74 @@
+{
+  "type": "SharedSlice",
+  "id": "news_feed_grid",
+  "name": "NewsFeedGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard card grid for displaying multiple news or post items with image, date, category, title, and link.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "articles": {
+          "type": "Group",
+          "config": {
+            "label": "Articles",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image"
+                }
+              },
+              "category": {
+                "type": "Text",
+                "config": {
+                  "label": "Category"
+                }
+              },
+              "date": {
+                "type": "Date",
+                "config": {
+                  "label": "Date"
+                }
+              },
+              "read_more_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Read More Link",
+                  "allowText": true,
+                  "repeat": false,
+                  "select": null
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "eyebrow",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

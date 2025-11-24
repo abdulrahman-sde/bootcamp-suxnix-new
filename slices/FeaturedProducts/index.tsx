@@ -24,7 +24,7 @@ const FeaturedProducts: FC<FeaturedProductsProps> = ({ slice }) => {
       <p className="mb-1 text-[15px] font-semibold tracking-[2px] text-[#63AF21] uppercase lg:text-base">
         {slice.primary.features_tagline}
       </p>
-      <h1 className="font-oswald mb-16 text-[37px] font-extrabold uppercase lg:text-[46px]">
+      <h1 className="font-oswald mb-16 text-[37px] font-semibold uppercase lg:text-[48px]">
         {slice.primary.features_product_heading}
       </h1>
       {/* <PrismicNextLink field={item.product_detail_link}>Link</PrismicNextLink> */}

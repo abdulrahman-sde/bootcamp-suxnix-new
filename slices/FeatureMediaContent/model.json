@@ -1,0 +1,75 @@
+{
+  "type": "SharedSlice",
+  "id": "feature_media_content",
+  "name": "FeatureMediaContent",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard featured media (image/video) with content and CTA vertically centered in a split layout.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "eyebrow",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "media_image": {
+          "type": "Image",
+          "config": {
+            "label": "Media Image"
+          }
+        },
+        "is_video": {
+          "type": "Boolean",
+          "config": {
+            "label": "Media is Video"
+          }
+        },
+        "cta": {
+          "type": "Link",
+          "config": {
+            "label": "Call to Action",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        },
+        "description_2": {
+          "type": "Text",
+          "config": {
+            "label": "Description 2",
+            "placeholder": ""
+          }
+        },
+        "bottom_shaper": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Shaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

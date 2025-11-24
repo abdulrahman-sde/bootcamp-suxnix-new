@@ -84,6 +84,15 @@
                   "label": "Product Id",
                   "placeholder": ""
                 }
+              },
+              "include_this": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Include this",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
               }
             }
           }

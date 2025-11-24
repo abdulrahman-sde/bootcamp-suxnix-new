@@ -10,6 +10,7 @@ import { Toaster } from "sonner";
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const roboto = Roboto({
