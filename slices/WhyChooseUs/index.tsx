@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import Image from "next/image";
 
 /**
  * Props for `WhyChooseUs`.
@@ -16,7 +17,11 @@ const WhyChooseUs: FC<WhyChooseUsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative mb-20 overflow-hidden bg-[#15A34A] py-20 text-white"
+      className="relative overflow-hidden py-20 text-white"
+      style={{
+        backgroundImage: `url(${slice.primary.background.url})`,
+        backgroundSize: "contain",
+      }}
     >
       {/* === Top Shaper Image === */}
       {slice.primary.top_reshaper?.url && (
@@ -35,7 +40,7 @@ const WhyChooseUs: FC<WhyChooseUsProps> = ({ slice }) => {
           <p className="text-primary text-[14px] font-bold tracking-widest uppercase">
             {slice.primary.tagline}
           </p>
-          <h2 className="text-4xl leading-tight font-extrabold uppercase md:text-5xl">
+          <h2 className="text-4xl leading-tight font-medium uppercase md:text-[50px]">
             {slice.primary.heading}
           </h2>
 
@@ -43,8 +48,14 @@ const WhyChooseUs: FC<WhyChooseUsProps> = ({ slice }) => {
           <ul className="mt-6 space-y-3">
             {slice.primary.befen?.map((item, index) => (
               <li key={index} className="flex items-start gap-3">
-                <span className="mt-[2px] text-lg font-bold text-orange-400">
-                  ›
+                <span className="mt-0.5 text-lg font-bold text-orange-400">
+                  <Image
+                    src="/right_arrow.svg fill.svg"
+                    width={16}
+                    height={16}
+                    alt="Right Arrow"
+                    className="mt-0.5"
+                  />
                 </span>
                 <p className="text-base text-white/90">{item.benefit}</p>
               </li>
@@ -56,7 +67,7 @@ const WhyChooseUs: FC<WhyChooseUsProps> = ({ slice }) => {
             <div className="pt-6">
               <PrismicNextLink
                 field={slice.primary.know_more}
-                className="inline-block rounded-full bg-orange-400 px-8 py-3 font-semibold text-white transition-colors duration-300 hover:bg-orange-500"
+                className="font-roboto inline-block rounded-full bg-[#FAA432] px-8 py-3 text-[15px] font-semibold text-white transition-colors duration-300 hover:bg-orange-500"
               >
                 Know More
               </PrismicNextLink>

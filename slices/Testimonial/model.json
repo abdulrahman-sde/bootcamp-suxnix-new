@@ -1,0 +1,89 @@
+{
+  "id": "testimonial",
+  "type": "SharedSlice",
+  "name": "Testimonial",
+  "description": "Testimonial",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "top_reshaper": {
+          "type": "Image",
+          "config": {
+            "label": "Top Reshaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_shaper": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Shaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "testimonial_data": {
+          "type": "Group",
+          "config": {
+            "label": "testimonial data",
+            "repeat": true,
+            "fields": {
+              "rating": {
+                "type": "Number",
+                "config": {
+                  "label": "rating",
+                  "placeholder": ""
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "text",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "name",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "left_icon_with_bg": {
+          "type": "Image",
+          "config": {
+            "label": "Left Icon with bg",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_icon_with_bg": {
+          "type": "Image",
+          "config": {
+            "label": "Right Icon with bg",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

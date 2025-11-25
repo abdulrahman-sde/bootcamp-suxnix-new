@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  accordion_faq: dynamic(() => import("./AccordionFaq")),
   article_detail: dynamic(() => import("./ArticleDetail")),
   banner: dynamic(() => import("./Banner")),
   blog: dynamic(() => import("./Blog")),
@@ -17,18 +18,24 @@ export const components = {
   feature_hero: dynamic(() => import("./FeatureHero")),
   feature_media_content: dynamic(() => import("./FeatureMediaContent")),
   featured_products: dynamic(() => import("./FeaturedProducts")),
+  footer_images: dynamic(() => import("./FooterImages")),
+  full_width_media: dynamic(() => import("./FullWidthMedia")),
   hero: dynamic(() => import("./Hero")),
+  images: dynamic(() => import("./Images")),
   ingredients: dynamic(() => import("./Ingredients")),
   logo_row: dynamic(() => import("./LogoRow")),
   news_feed_grid: dynamic(() => import("./NewsFeedGrid")),
   offers: dynamic(() => import("./Offers")),
   product_carousel: dynamic(() => import("./ProductCarousel")),
   product_detail_display: dynamic(() => import("./ProductDetailDisplay")),
+  product_list: dynamic(() => import("./ProductList")),
   profile_sidebar: dynamic(() => import("./ProfileSidebar")),
   shop_products: dynamic(() => import("./ShopProducts")),
   shop_sidebar: dynamic(() => import("./ShopSidebar")),
   sidebar_widgets: dynamic(() => import("./SidebarWidgets")),
   tabbed_content: dynamic(() => import("./TabbedContent")),
+  testimonial: dynamic(() => import("./Testimonial")),
   testimonial_list: dynamic(() => import("./TestimonialList")),
+  testimonials: dynamic(() => import("./Testimonials")),
   why_choose_us: dynamic(() => import("./WhyChooseUs")),
 };

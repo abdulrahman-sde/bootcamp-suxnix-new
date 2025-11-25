@@ -1,0 +1,183 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"left_icon_with_bg": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+					"width": 3212,
+					"height": 3880
+				},
+				"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+				"width": 3212,
+				"height": 3880,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "human",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"right_icon_with_bg": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+					"width": 3882,
+					"height": 2584
+				},
+				"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+				"width": 3882,
+				"height": 2584,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "dawn",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"testimonial_data": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"rating",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "90",
+									"type": "Number"
+								}
+							],
+							[
+								"testimonial_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "great",
+									"type": "Text"
+								}
+							],
+							[
+								"reviewer",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+										"width": 3935,
+										"height": 5894
+									},
+									"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
+									"width": 3935,
+									"height": 5894,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "spring",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "into",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"background": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+					"width": 4010,
+					"height": 4010
+				},
+				"url": "https://images.unsplash.com/photo-1607582278038-6bebbd4d7b72",
+				"width": 4010,
+				"height": 4010,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "contain",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"bottom_shaper": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+					"width": 3560,
+					"height": 5340
+				},
+				"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+				"width": 3560,
+				"height": 5340,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "center",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"top_reshaper": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+					"width": 3199,
+					"height": 3199
+				},
+				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+				"width": 3199,
+				"height": 3199,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "club",
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	}
+]

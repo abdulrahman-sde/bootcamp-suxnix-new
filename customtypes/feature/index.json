@@ -11,6 +11,27 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "footer_images": {
+              "type": "SharedSlice"
+            },
+            "accordion_faq": {
+              "type": "SharedSlice"
+            },
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "offers": {
+              "type": "SharedSlice"
+            },
+            "testimonial": {
+              "type": "SharedSlice"
+            },
+            "full_width_media": {
+              "type": "SharedSlice"
+            },
+            "product_list": {
+              "type": "SharedSlice"
+            },
             "logo_row": {
               "type": "SharedSlice"
             },

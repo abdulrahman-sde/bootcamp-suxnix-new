@@ -150,6 +150,11 @@
 						]
 					}
 				]
+			},
+			"brand_color": {
+				"__TYPE__": "FieldContent",
+				"value": "shout",
+				"type": "Text"
 			}
 		},
 		"items": []

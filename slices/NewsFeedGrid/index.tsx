@@ -38,7 +38,7 @@ const NewsFeedGrid: FC<NewsFeedGridProps> = ({ slice }) => {
           {slice.primary.articles.map((item, index) => (
             <div
               key={index}
-              className="group flex flex-col overflow-hidden border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="relative flex flex-col overflow-hidden border border-gray-100 bg-white shadow-sm hover:shadow-lg"
             >
               {/* Image Container */}
               <div className="relative h-64 w-full overflow-hidden">
@@ -46,16 +46,15 @@ const NewsFeedGrid: FC<NewsFeedGridProps> = ({ slice }) => {
                   field={item.image}
                   width={400}
                   height={273}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-500"
                 />
                 {/* Category Badge */}
-                {item.category && (
-                  <div className="font-roboto absolute right-4 bottom-4 rounded-full bg-white px-5 py-1.5 text-[14px] font-bold text-[#63AF21] shadow-md">
-                    {item.category}
-                  </div>
-                )}
               </div>
-
+              {item.category && (
+                <div className="font-roboto absolute top-[55%] right-4 z-50 rounded-full bg-white px-5 py-1.5 text-[14px] font-bold text-[#63AF21] shadow-xl">
+                  {item.category}
+                </div>
+              )}
               {/* Content Container */}
               <div className="flex flex-1 flex-col p-6">
                 {/* Date */}

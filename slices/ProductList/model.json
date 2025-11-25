@@ -1,0 +1,89 @@
+{
+  "type": "SharedSlice",
+  "id": "product_list",
+  "name": "ProductList",
+  "variations": [
+    {
+      "id": "vertical_card_list",
+      "name": "Vertical Card List",
+      "description": "Each product is shown as a card with its image on the left or right, product info and actions on the other side. Multiple cards are stacked vertically.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "products": {
+          "type": "Group",
+          "config": {
+            "label": "Products",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image"
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "black_leaves": {
+                "type": "Image",
+                "config": {
+                  "label": "black leaves",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "dosage": {
+                "type": "Text",
+                "config": {
+                  "label": "Dosage / Strength Info"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,strong,em,hyperlink",
+                  "label": "Description"
+                }
+              },
+              "cta_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link",
+                  "allowText": true,
+                  "repeat": false,
+                  "select": null
+                }
+              },
+              "previous_price": {
+                "type": "Number",
+                "config": {
+                  "label": "Previous Price"
+                }
+              },
+              "current_price": {
+                "type": "Number",
+                "config": {
+                  "label": "Current Price"
+                }
+              },
+              "bg_leaves": {
+                "type": "Image",
+                "config": {
+                  "label": "Bg Leaves",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

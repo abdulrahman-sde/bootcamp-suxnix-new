@@ -1,0 +1,36 @@
+{
+  "id": "footer_images",
+  "type": "SharedSlice",
+  "name": "FooterImages",
+  "description": "FooterImages",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Images",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

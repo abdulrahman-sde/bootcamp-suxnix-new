@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import RelatedProducts from "@/componnets/RelatedProducts";
 
 /**
  * Props for `Ingredients`.
@@ -23,12 +24,12 @@ const Ingredients: FC<IngredientsProps> = ({ slice }) => {
         {slice.primary.charts?.map((item, index) => (
           <div
             key={index}
-            className="flex items-center justify-start gap-8 border border-gray-200 bg-white py-2 shadow-md transition-shadow duration-300 hover:shadow-lg"
+            className={`flex items-center justify-start gap-8 border border-gray-200 bg-white py-2 transition-shadow duration-300 ${index === 1 && "shadow-[0_35px_60px_0px_rgba(0,0,0,0.25)]"}`}
           >
             {/* Circular percentage indicator */}
             <div className="relative flex items-center justify-center py-1 ps-6">
               <svg
-                className="h-20 w-20"
+                className="h-18 w-18"
                 viewBox="0 0 36 36"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -38,7 +39,7 @@ const Ingredients: FC<IngredientsProps> = ({ slice }) => {
                   r="15"
                   fill="none"
                   stroke="#e5e7eb" /* Light Gray background ring */
-                  strokeWidth="4"
+                  strokeWidth="3"
                 />
                 <circle
                   cx="18"
@@ -46,7 +47,7 @@ const Ingredients: FC<IngredientsProps> = ({ slice }) => {
                   r="15"
                   fill="none"
                   stroke="#f59e0b" /* Orange progress */
-                  strokeWidth="4"
+                  strokeWidth="3"
                   strokeLinecap="round"
                   strokeDasharray="94.2" // circumference
                   strokeDashoffset={
@@ -62,11 +63,11 @@ const Ingredients: FC<IngredientsProps> = ({ slice }) => {
               </span>
             </div>
 
-            <div>
-              <h3 className="mb-1 text-lg font-semibold text-gray-900">
+            <div className="-ms-3">
+              <h3 className="mb-1 text-[19px] font-medium tracking-wide text-gray-900 uppercase">
                 {item.heading}
               </h3>
-              <p className="max-w-[200px] text-sm text-gray-500">
+              <p className="max-w-[200px] text-[15.5px] text-gray-500">
                 {item.sub_heading}
               </p>
             </div>

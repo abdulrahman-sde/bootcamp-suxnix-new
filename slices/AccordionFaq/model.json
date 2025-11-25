@@ -1,0 +1,128 @@
+{
+  "type": "SharedSlice",
+  "id": "accordion_faq",
+  "name": "AccordionFaq",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard question-answer accordion list with support for question, answer, and ordering.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "latest_new_eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Latest new eyebrow",
+            "placeholder": ""
+          }
+        },
+        "latest_new_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Latest new heading",
+            "placeholder": ""
+          }
+        },
+        "news": {
+          "type": "Group",
+          "config": {
+            "label": "news",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "tips_and_tricks": {
+                "type": "Text",
+                "config": {
+                  "label": "tips and tricks",
+                  "placeholder": ""
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "post_by": {
+                "type": "Text",
+                "config": {
+                  "label": "post by ",
+                  "placeholder": ""
+                }
+              },
+              "days_ago": {
+                "type": "Text",
+                "config": {
+                  "label": "days ago",
+                  "placeholder": ""
+                }
+              },
+              "images": {
+                "type": "Text",
+                "config": {
+                  "label": "images",
+                  "placeholder": ""
+                }
+              },
+              "viewers": {
+                "type": "Text",
+                "config": {
+                  "label": "viewers",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "faq_eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "faq eyebrow",
+            "placeholder": ""
+          }
+        },
+        "faq_heading": {
+          "type": "Text",
+          "config": {
+            "label": "faq heading",
+            "placeholder": ""
+          }
+        },
+        "faqs": {
+          "type": "Group",
+          "config": {
+            "label": "faqs",
+            "repeat": true,
+            "fields": {
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "heading",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

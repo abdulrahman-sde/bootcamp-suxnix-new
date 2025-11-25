@@ -1,0 +1,87 @@
+{
+  "format": "custom",
+  "id": "related_products",
+  "label": "Related Products",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "related_products": {
+        "type": "Group",
+        "config": {
+          "label": "Related Products",
+          "repeat": true,
+          "fields": {
+            "img_with_bg": {
+              "type": "Image",
+              "config": {
+                "label": "Img with bg",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "cihp": {
+              "type": "Text",
+              "config": {
+                "label": "Product Id",
+                "placeholder": ""
+              }
+            },
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "title",
+                "placeholder": ""
+              }
+            },
+            "price": {
+              "type": "Number",
+              "config": {
+                "label": "Price",
+                "placeholder": ""
+              }
+            },
+            "rating": {
+              "type": "Number",
+              "config": {
+                "label": "rating",
+                "placeholder": ""
+              }
+            },
+            "reviews": {
+              "type": "Number",
+              "config": {
+                "label": "reviews",
+                "placeholder": ""
+              }
+            },
+            "cart_icon": {
+              "type": "Image",
+              "config": {
+                "label": "Cart Icon",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "left_icon_with_bg": {
+        "type": "Image",
+        "config": {
+          "label": "Left Icon with bg",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "right_icon_with_bg": {
+        "type": "Image",
+        "config": {
+          "label": "Right Icon with bg",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

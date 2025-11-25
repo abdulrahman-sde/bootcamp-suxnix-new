@@ -80,25 +80,27 @@ const ContentSideImageHighlight: FC<ContentSideImageHighlightProps> = ({
             <div className="relative order-1 lg:order-2">
               {/* Background Image (decorative) */}
               {slice.primary.background && (
-                <div className="absolute inset-0 -z-10 opacity-40">
-                  <PrismicNextImage
-                    field={slice.primary.background}
-                    width={560}
-                    height={340}
-                    className="object-contain"
-                  />
+                <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-40 lg:justify-end">
+                  <div className="w-full max-w-[280px] lg:max-w-lg xl:max-w-xl">
+                    <PrismicNextImage
+                      field={slice.primary.background}
+                      width={560}
+                      height={340}
+                      className="h-auto w-full object-contain"
+                    />
+                  </div>
                 </div>
               )}
 
               {/* Main Product Image */}
               {slice.primary.main_image && (
                 <div className="relative z-10 flex items-center justify-center lg:justify-end">
-                  <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
+                  <div className="relative w-full max-w-[300px] lg:max-w-lg xl:max-w-xl">
                     <PrismicNextImage
                       field={slice.primary.main_image}
                       width={660}
                       height={440}
-                      className="max-h-[440px] max-w-[660px] transform object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105"
+                      className="h-auto w-full transform object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-105 md:max-h-[440px] md:max-w-[660px]"
                     />
                   </div>
                 </div>

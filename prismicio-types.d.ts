@@ -567,6 +567,13 @@ export type ContactUsDocument<Lang extends string = string> =
   >;
 
 type FeatureDocumentDataSlicesSlice =
+  | FooterImagesSlice
+  | AccordionFaqSlice
+  | TestimonialsSlice
+  | OffersSlice
+  | TestimonialSlice
+  | FullWidthMediaSlice
+  | ProductListSlice
   | LogoRowSlice
   | WhyChooseUsSlice
   | IngredientsSlice
@@ -1373,6 +1380,137 @@ export type ProductDetailsDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Related Products → Related Products*
+ */
+export interface RelatedProductsDocumentDataRelatedProductsItem {
+  /**
+   * Img with bg field in *Related Products → Related Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[].img_with_bg
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img_with_bg: prismic.ImageField<never>;
+
+  /**
+   * Product Id field in *Related Products → Related Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[].cihp
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cihp: prismic.KeyTextField;
+
+  /**
+   * title field in *Related Products → Related Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Price field in *Related Products → Related Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[].price
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  price: prismic.NumberField;
+
+  /**
+   * rating field in *Related Products → Related Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[].rating
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  rating: prismic.NumberField;
+
+  /**
+   * reviews field in *Related Products → Related Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[].reviews
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  reviews: prismic.NumberField;
+
+  /**
+   * Cart Icon field in *Related Products → Related Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[].cart_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  cart_icon: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Related Products documents
+ */
+interface RelatedProductsDocumentData {
+  /**
+   * Related Products field in *Related Products*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.related_products[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  related_products: prismic.GroupField<
+    Simplify<RelatedProductsDocumentDataRelatedProductsItem>
+  >;
+
+  /**
+   * Left Icon with bg field in *Related Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.left_icon_with_bg
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  left_icon_with_bg: prismic.ImageField<never>;
+
+  /**
+   * Right Icon with bg field in *Related Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: related_products.right_icon_with_bg
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  right_icon_with_bg: prismic.ImageField<never>;
+}
+
+/**
+ * Related Products document from Prismic
+ *
+ * - **API ID**: `related_products`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RelatedProductsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<RelatedProductsDocumentData>,
+    "related_products",
+    Lang
+  >;
+
 type ShopDocumentDataSlicesSlice =
   | ShopSidebarSlice
   | ShopProductsSlice
@@ -1448,7 +1586,203 @@ export type AllDocumentTypes =
   | LandingDocument
   | NavbarDocument
   | ProductDetailsDocument
+  | RelatedProductsDocument
   | ShopDocument;
+
+/**
+ * Item in *AccordionFaq → Default → Primary → news*
+ */
+export interface AccordionFaqSliceDefaultPrimaryNewsItem {
+  /**
+   * Image field in *AccordionFaq → Default → Primary → news*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * tips and tricks field in *AccordionFaq → Default → Primary → news*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[].tips_and_tricks
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  tips_and_tricks: prismic.KeyTextField;
+
+  /**
+   * title field in *AccordionFaq → Default → Primary → news*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * post by  field in *AccordionFaq → Default → Primary → news*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[].post_by
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  post_by: prismic.KeyTextField;
+
+  /**
+   * days ago field in *AccordionFaq → Default → Primary → news*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[].days_ago
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  days_ago: prismic.KeyTextField;
+
+  /**
+   * images field in *AccordionFaq → Default → Primary → news*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[].images
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  images: prismic.KeyTextField;
+
+  /**
+   * viewers field in *AccordionFaq → Default → Primary → news*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[].viewers
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  viewers: prismic.KeyTextField;
+}
+
+/**
+ * Item in *AccordionFaq → Default → Primary → faqs*
+ */
+export interface AccordionFaqSliceDefaultPrimaryFaqsItem {
+  /**
+   * heading field in *AccordionFaq → Default → Primary → faqs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.faqs[].heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *AccordionFaq → Default → Primary → faqs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.faqs[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *AccordionFaq → Default → Primary*
+ */
+export interface AccordionFaqSliceDefaultPrimary {
+  /**
+   * Latest new eyebrow field in *AccordionFaq → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.latest_new_eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  latest_new_eyebrow: prismic.KeyTextField;
+
+  /**
+   * Latest new heading field in *AccordionFaq → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.latest_new_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  latest_new_heading: prismic.KeyTextField;
+
+  /**
+   * news field in *AccordionFaq → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.news[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  news: prismic.GroupField<Simplify<AccordionFaqSliceDefaultPrimaryNewsItem>>;
+
+  /**
+   * faq eyebrow field in *AccordionFaq → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.faq_eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  faq_eyebrow: prismic.KeyTextField;
+
+  /**
+   * faq heading field in *AccordionFaq → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.faq_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  faq_heading: prismic.KeyTextField;
+
+  /**
+   * faqs field in *AccordionFaq → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion_faq.default.primary.faqs[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  faqs: prismic.GroupField<Simplify<AccordionFaqSliceDefaultPrimaryFaqsItem>>;
+}
+
+/**
+ * Default variation for AccordionFaq Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard question-answer accordion list with support for question, answer, and ordering.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AccordionFaqSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AccordionFaqSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AccordionFaq*
+ */
+type AccordionFaqSliceVariation = AccordionFaqSliceDefault;
+
+/**
+ * AccordionFaq Shared Slice
+ *
+ * - **API ID**: `accordion_faq`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AccordionFaqSlice = prismic.SharedSlice<
+  "accordion_faq",
+  AccordionFaqSliceVariation
+>;
 
 /**
  * Item in *ArticleDetail → Default → Primary → Metadata*
@@ -2869,6 +3203,153 @@ export type FeaturedProductsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *FooterImages → Default → Primary → Images*
+ */
+export interface FooterImagesSliceDefaultPrimaryImagesItem {
+  /**
+   * Image field in *FooterImages → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_images.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *FooterImages → Default → Primary*
+ */
+export interface FooterImagesSliceDefaultPrimary {
+  /**
+   * Images field in *FooterImages → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_images.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<
+    Simplify<FooterImagesSliceDefaultPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Default variation for FooterImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FooterImages*
+ */
+type FooterImagesSliceVariation = FooterImagesSliceDefault;
+
+/**
+ * FooterImages Shared Slice
+ *
+ * - **API ID**: `footer_images`
+ * - **Description**: FooterImages
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterImagesSlice = prismic.SharedSlice<
+  "footer_images",
+  FooterImagesSliceVariation
+>;
+
+/**
+ * Primary content in *FullWidthMedia → Media Only (Dark) → Primary*
+ */
+export interface FullWidthMediaSliceMediaOnlyDarkPrimary {
+  /**
+   * Image field in *FullWidthMedia → Media Only (Dark) → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: full_width_media.media_only_dark.primary.media_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  media_image: prismic.ImageField<never>;
+
+  /**
+   * Top Reshaper field in *FullWidthMedia → Media Only (Dark) → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: full_width_media.media_only_dark.primary.top_reshaper
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  top_reshaper: prismic.ImageField<never>;
+
+  /**
+   * Bottom Shaper field in *FullWidthMedia → Media Only (Dark) → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: full_width_media.media_only_dark.primary.bottom_shaper
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  bottom_shaper: prismic.ImageField<never>;
+
+  /**
+   * Leaves 1 field in *FullWidthMedia → Media Only (Dark) → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: full_width_media.media_only_dark.primary.leaves_1
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  leaves_1: prismic.ImageField<never>;
+
+  /**
+   * leaves 2 field in *FullWidthMedia → Media Only (Dark) → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: full_width_media.media_only_dark.primary.leaves_2
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  leaves_2: prismic.ImageField<never>;
+}
+
+/**
+ * Media Only (Dark) variation for FullWidthMedia Slice
+ *
+ * - **API ID**: `media_only_dark`
+ * - **Description**: Displays a single media item (image or video) spanning the full width, with a dark background. No overlaid text or CTAs.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FullWidthMediaSliceMediaOnlyDark = prismic.SharedSliceVariation<
+  "media_only_dark",
+  Simplify<FullWidthMediaSliceMediaOnlyDarkPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FullWidthMedia*
+ */
+type FullWidthMediaSliceVariation = FullWidthMediaSliceMediaOnlyDark;
+
+/**
+ * FullWidthMedia Shared Slice
+ *
+ * - **API ID**: `full_width_media`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FullWidthMediaSlice = prismic.SharedSlice<
+  "full_width_media",
+  FullWidthMediaSliceVariation
+>;
+
+/**
  * Item in *Hero → Default → Primary → Hero Cards*
  */
 export interface HeroSliceDefaultPrimaryHeroCardsItem {
@@ -3042,6 +3523,63 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *Images → Default → Primary → Images*
+ */
+export interface ImagesSliceDefaultPrimaryImagesItem {
+  /**
+   * image field in *Images → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Images → Default → Primary*
+ */
+export interface ImagesSliceDefaultPrimary {
+  /**
+   * Images field in *Images → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<Simplify<ImagesSliceDefaultPrimaryImagesItem>>;
+}
+
+/**
+ * Default variation for Images Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Images*
+ */
+type ImagesSliceVariation = ImagesSliceDefault;
+
+/**
+ * Images Shared Slice
+ *
+ * - **API ID**: `images`
+ * - **Description**: Images
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImagesSlice = prismic.SharedSlice<"images", ImagesSliceVariation>;
 
 /**
  * Item in *Ingredients → Default → Primary → Charts*
@@ -3556,6 +4094,16 @@ export interface OffersSliceDefaultPrimary {
   offer_card: prismic.GroupField<
     Simplify<OffersSliceDefaultPrimaryOfferCardItem>
   >;
+
+  /**
+   * Brand Color field in *Offers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: offers.default.primary.brand_color
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  brand_color: prismic.KeyTextField;
 }
 
 /**
@@ -4006,6 +4554,154 @@ type ProductDetailDisplaySliceVariation =
 export type ProductDetailDisplaySlice = prismic.SharedSlice<
   "product_detail_display",
   ProductDetailDisplaySliceVariation
+>;
+
+/**
+ * Item in *ProductList → Vertical Card List → Primary → Products*
+ */
+export interface ProductListSliceVerticalCardListPrimaryProductsItem {
+  /**
+   * Product Image field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * black leaves field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].black_leaves
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  black_leaves: prismic.ImageField<never>;
+
+  /**
+   * Dosage / Strength Info field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].dosage
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  dosage: prismic.KeyTextField;
+
+  /**
+   * Description field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Link field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].cta_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Previous Price field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].previous_price
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  previous_price: prismic.NumberField;
+
+  /**
+   * Current Price field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].current_price
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  current_price: prismic.NumberField;
+
+  /**
+   * Bg Leaves field in *ProductList → Vertical Card List → Primary → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[].bg_leaves
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  bg_leaves: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ProductList → Vertical Card List → Primary*
+ */
+export interface ProductListSliceVerticalCardListPrimary {
+  /**
+   * Products field in *ProductList → Vertical Card List → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_list.vertical_card_list.primary.products[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  products: prismic.GroupField<
+    Simplify<ProductListSliceVerticalCardListPrimaryProductsItem>
+  >;
+}
+
+/**
+ * Vertical Card List variation for ProductList Slice
+ *
+ * - **API ID**: `vertical_card_list`
+ * - **Description**: Each product is shown as a card with its image on the left or right, product info and actions on the other side. Multiple cards are stacked vertically.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProductListSliceVerticalCardList = prismic.SharedSliceVariation<
+  "vertical_card_list",
+  Simplify<ProductListSliceVerticalCardListPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductList*
+ */
+type ProductListSliceVariation = ProductListSliceVerticalCardList;
+
+/**
+ * ProductList Shared Slice
+ *
+ * - **API ID**: `product_list`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProductListSlice = prismic.SharedSlice<
+  "product_list",
+  ProductListSliceVariation
 >;
 
 /**
@@ -5036,6 +5732,138 @@ export type TabbedContentSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Testimonial → Default → Primary → testimonial data*
+ */
+export interface TestimonialSliceDefaultPrimaryTestimonialDataItem {
+  /**
+   * rating field in *Testimonial → Default → Primary → testimonial data*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.testimonial_data[].rating
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  rating: prismic.NumberField;
+
+  /**
+   * text field in *Testimonial → Default → Primary → testimonial data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.testimonial_data[].text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * image field in *Testimonial → Default → Primary → testimonial data*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.testimonial_data[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * name field in *Testimonial → Default → Primary → testimonial data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.testimonial_data[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Testimonial → Default → Primary*
+ */
+export interface TestimonialSliceDefaultPrimary {
+  /**
+   * Top Reshaper field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.top_reshaper
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  top_reshaper: prismic.ImageField<never>;
+
+  /**
+   * Bottom Shaper field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.bottom_shaper
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  bottom_shaper: prismic.ImageField<never>;
+
+  /**
+   * testimonial data field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.testimonial_data[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  testimonial_data: prismic.GroupField<
+    Simplify<TestimonialSliceDefaultPrimaryTestimonialDataItem>
+  >;
+
+  /**
+   * Left Icon with bg field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.left_icon_with_bg
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  left_icon_with_bg: prismic.ImageField<never>;
+
+  /**
+   * Right Icon with bg field in *Testimonial → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.default.primary.right_icon_with_bg
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  right_icon_with_bg: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Testimonial Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Testimonial*
+ */
+type TestimonialSliceVariation = TestimonialSliceDefault;
+
+/**
+ * Testimonial Shared Slice
+ *
+ * - **API ID**: `testimonial`
+ * - **Description**: Testimonial
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialSlice = prismic.SharedSlice<
+  "testimonial",
+  TestimonialSliceVariation
+>;
+
+/**
  * Item in *TestimonialList → Doctor Testimonial Grid → Primary → Testimonials*
  */
 export interface TestimonialListSliceGridDoctorTestimonialsPrimaryTestimonialsItem {
@@ -5169,6 +5997,148 @@ export type TestimonialListSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Testimonials → FeaturesTestiminial → Primary → testimonial data*
+ */
+export interface TestimonialsSliceDefaultPrimaryTestimonialDataItem {
+  /**
+   * rating field in *Testimonials → FeaturesTestiminial → Primary → testimonial data*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonial_data[].rating
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  rating: prismic.NumberField;
+
+  /**
+   * testimonial description field in *Testimonials → FeaturesTestiminial → Primary → testimonial data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonial_data[].testimonial_description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  testimonial_description: prismic.KeyTextField;
+
+  /**
+   * Reviewer field in *Testimonials → FeaturesTestiminial → Primary → testimonial data*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonial_data[].reviewer
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  reviewer: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Testimonials → FeaturesTestiminial → Primary → testimonial data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonial_data[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Testimonials → FeaturesTestiminial → Primary*
+ */
+export interface TestimonialsSliceDefaultPrimary {
+  /**
+   * Left Icon with bg field in *Testimonials → FeaturesTestiminial → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.left_icon_with_bg
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  left_icon_with_bg: prismic.ImageField<never>;
+
+  /**
+   * Right Icon with bg field in *Testimonials → FeaturesTestiminial → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.right_icon_with_bg
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  right_icon_with_bg: prismic.ImageField<never>;
+
+  /**
+   * testimonial data field in *Testimonials → FeaturesTestiminial → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonial_data[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  testimonial_data: prismic.GroupField<
+    Simplify<TestimonialsSliceDefaultPrimaryTestimonialDataItem>
+  >;
+
+  /**
+   * Background field in *Testimonials → FeaturesTestiminial → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.background
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background: prismic.ImageField<never>;
+
+  /**
+   * Bottom Shaper field in *Testimonials → FeaturesTestiminial → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.bottom_shaper
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  bottom_shaper: prismic.ImageField<never>;
+
+  /**
+   * Top Reshaper field in *Testimonials → FeaturesTestiminial → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.top_reshaper
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  top_reshaper: prismic.ImageField<never>;
+}
+
+/**
+ * FeaturesTestiminial variation for Testimonials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Testimonials*
+ */
+type TestimonialsSliceVariation = TestimonialsSliceDefault;
+
+/**
+ * Testimonials Shared Slice
+ *
+ * - **API ID**: `testimonials`
+ * - **Description**: Testimonials
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TestimonialsSlice = prismic.SharedSlice<
+  "testimonials",
+  TestimonialsSliceVariation
+>;
+
+/**
  * Item in *WhyChooseUs → Default → Primary → Benefits*
  */
 export interface WhyChooseUsSliceDefaultPrimaryBefenItem {
@@ -5262,6 +6232,16 @@ export interface WhyChooseUsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   bottom_shaper: prismic.ImageField<never>;
+
+  /**
+   * Background field in *WhyChooseUs → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: why_choose_us.default.primary.background
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background: prismic.ImageField<never>;
 }
 
 /**
@@ -5356,10 +6336,19 @@ declare module "@prismicio/client" {
       ProductDetailsDocumentDataTagsItem,
       ProductDetailsDocumentDataCategoriesItem,
       ProductDetailsDocumentDataSlicesSlice,
+      RelatedProductsDocument,
+      RelatedProductsDocumentData,
+      RelatedProductsDocumentDataRelatedProductsItem,
       ShopDocument,
       ShopDocumentData,
       ShopDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AccordionFaqSlice,
+      AccordionFaqSliceDefaultPrimaryNewsItem,
+      AccordionFaqSliceDefaultPrimaryFaqsItem,
+      AccordionFaqSliceDefaultPrimary,
+      AccordionFaqSliceVariation,
+      AccordionFaqSliceDefault,
       ArticleDetailSlice,
       ArticleDetailSliceDefaultPrimaryMetaInfoItem,
       ArticleDetailSliceDefaultPrimary,
@@ -5416,11 +6405,25 @@ declare module "@prismicio/client" {
       FeaturedProductsSliceDefaultPrimary,
       FeaturedProductsSliceVariation,
       FeaturedProductsSliceDefault,
+      FooterImagesSlice,
+      FooterImagesSliceDefaultPrimaryImagesItem,
+      FooterImagesSliceDefaultPrimary,
+      FooterImagesSliceVariation,
+      FooterImagesSliceDefault,
+      FullWidthMediaSlice,
+      FullWidthMediaSliceMediaOnlyDarkPrimary,
+      FullWidthMediaSliceVariation,
+      FullWidthMediaSliceMediaOnlyDark,
       HeroSlice,
       HeroSliceDefaultPrimaryHeroCardsItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ImagesSlice,
+      ImagesSliceDefaultPrimaryImagesItem,
+      ImagesSliceDefaultPrimary,
+      ImagesSliceVariation,
+      ImagesSliceDefault,
       IngredientsSlice,
       IngredientsSliceDefaultPrimaryChartsItem,
       IngredientsSliceDefaultPrimaryIngredient1Item,
@@ -5452,6 +6455,11 @@ declare module "@prismicio/client" {
       ProductDetailDisplaySliceDefaultFullDetailPrimary,
       ProductDetailDisplaySliceVariation,
       ProductDetailDisplaySliceDefaultFullDetail,
+      ProductListSlice,
+      ProductListSliceVerticalCardListPrimaryProductsItem,
+      ProductListSliceVerticalCardListPrimary,
+      ProductListSliceVariation,
+      ProductListSliceVerticalCardList,
       ProfileSidebarSlice,
       ProfileSidebarSliceProfileWithSearchAndFeedPrimarySocialLinksItem,
       ProfileSidebarSliceProfileWithSearchAndFeedPrimaryFeedItemsItem,
@@ -5483,11 +6491,21 @@ declare module "@prismicio/client" {
       TabbedContentSliceTabWithRichTextAndListPrimary,
       TabbedContentSliceVariation,
       TabbedContentSliceTabWithRichTextAndList,
+      TestimonialSlice,
+      TestimonialSliceDefaultPrimaryTestimonialDataItem,
+      TestimonialSliceDefaultPrimary,
+      TestimonialSliceVariation,
+      TestimonialSliceDefault,
       TestimonialListSlice,
       TestimonialListSliceGridDoctorTestimonialsPrimaryTestimonialsItem,
       TestimonialListSliceGridDoctorTestimonialsPrimary,
       TestimonialListSliceVariation,
       TestimonialListSliceGridDoctorTestimonials,
+      TestimonialsSlice,
+      TestimonialsSliceDefaultPrimaryTestimonialDataItem,
+      TestimonialsSliceDefaultPrimary,
+      TestimonialsSliceVariation,
+      TestimonialsSliceDefault,
       WhyChooseUsSlice,
       WhyChooseUsSliceDefaultPrimaryBefenItem,
       WhyChooseUsSliceDefaultPrimary,

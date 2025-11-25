@@ -117,6 +117,13 @@
               }
             }
           }
+        },
+        "brand_color": {
+          "type": "Text",
+          "config": {
+            "label": "Brand Color",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

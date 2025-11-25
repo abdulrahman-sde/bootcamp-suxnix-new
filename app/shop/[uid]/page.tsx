@@ -7,6 +7,7 @@ import { components } from "@/slices";
 import { PrismicNextImage } from "@prismicio/next";
 import Container from "@/componnets/Container";
 import ProductDetailCartBtn from "@/componnets/ProductDetailCartBtn";
+import RelatedProducts from "@/componnets/RelatedProducts";
 
 type Params = { uid: string };
 
@@ -154,7 +155,6 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             </div>
           </div>
         </div>
-
         {/* Slices below (like description, reviews, etc.) */}
 
         <SliceZone slices={remainingSlices} components={components} />

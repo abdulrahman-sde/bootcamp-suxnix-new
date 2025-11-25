@@ -1,0 +1,56 @@
+{
+  "type": "SharedSlice",
+  "id": "full_width_media",
+  "name": "FullWidthMedia",
+  "variations": [
+    {
+      "id": "media_only_dark",
+      "name": "Media Only (Dark)",
+      "description": "Displays a single media item (image or video) spanning the full width, with a dark background. No overlaid text or CTAs.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "media_image": {
+          "type": "Image",
+          "config": {
+            "label": "Image"
+          }
+        },
+        "top_reshaper": {
+          "type": "Image",
+          "config": {
+            "label": "Top Reshaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_shaper": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Shaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "leaves_1": {
+          "type": "Image",
+          "config": {
+            "label": "Leaves 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "leaves_2": {
+          "type": "Image",
+          "config": {
+            "label": "leaves 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

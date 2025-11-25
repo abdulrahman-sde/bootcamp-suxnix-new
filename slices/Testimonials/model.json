@@ -1,0 +1,97 @@
+{
+  "id": "testimonials",
+  "type": "SharedSlice",
+  "name": "Testimonials",
+  "description": "Testimonials",
+  "variations": [
+    {
+      "id": "default",
+      "name": "FeaturesTestiminial",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "left_icon_with_bg": {
+          "type": "Image",
+          "config": {
+            "label": "Left Icon with bg",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_icon_with_bg": {
+          "type": "Image",
+          "config": {
+            "label": "Right Icon with bg",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "testimonial_data": {
+          "type": "Group",
+          "config": {
+            "label": "testimonial data",
+            "repeat": true,
+            "fields": {
+              "rating": {
+                "type": "Number",
+                "config": {
+                  "label": "rating",
+                  "placeholder": ""
+                }
+              },
+              "testimonial_description": {
+                "type": "Text",
+                "config": {
+                  "label": "testimonial description",
+                  "placeholder": ""
+                }
+              },
+              "reviewer": {
+                "type": "Image",
+                "config": {
+                  "label": "Reviewer",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "background": {
+          "type": "Image",
+          "config": {
+            "label": "Background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_shaper": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Shaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "top_reshaper": {
+          "type": "Image",
+          "config": {
+            "label": "Top Reshaper",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

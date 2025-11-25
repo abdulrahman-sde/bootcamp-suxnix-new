@@ -26,11 +26,7 @@ export default function NavbarClient({
   const isFeatureHero = component === "feature_hero";
 
   // Original design when page first loads
-  const navBaseStyle = isLandingHero
-    ? "relative bg-[#f1f7eb] pt-2"
-    : isFeatureHero
-      ? "relative bg-white pt-2"
-      : "absolute top-0 left-0 w-full bg-transparent z-50";
+  // Base styles are now handled dynamically in navClassName
 
   useEffect(() => {
     const measure = () => {
@@ -52,30 +48,31 @@ export default function NavbarClient({
     };
   }, []);
 
-  // Classes applied once user scrolls past threshold
-  const fixedClasses =
-    "fixed top-0 left-0 w-full z-50 bg-white shadow-md backdrop-blur-sm";
+  const navPosition =
+    isLandingHero || isFeatureHero
+      ? "sticky top-0 z-50 pt-2"
+      : "fixed top-0 left-0 w-full z-50";
 
-  // Smooth transition & animation for appearing navbar
+  const navVisuals = isFixed
+    ? "bg-white backdrop-blur-sm"
+    : isLandingHero
+      ? "bg-[#f1f7eb]"
+      : isFeatureHero
+        ? "bg-white"
+        : "bg-transparent";
+
   const navClassName = `
-    ${isFixed ? fixedClasses : navBaseStyle}
+    ${navPosition}
+    ${navVisuals}
     font-roboto transition-all duration-500 ease-in-out
-    ${isFixed ? "translate-y-0 opacity-100" : "translate-y-0 opacity-100"}
+    translate-y-0 opacity-100
   `;
 
   return (
     <>
-      {/* Placeholder to prevent layout shift */}
-      {isFixed && <div style={{ height: navHeight }} aria-hidden />}
-
-      <nav
-        ref={navRef}
-        className={`${navClassName} ${
-          isFixed ? "border-b border-gray-100" : ""
-        }`}
-      >
+      <nav ref={navRef} className={navClassName}>
         <Container
-          className={`mx-auto flex max-w-[1320px] items-center justify-between px-4 pt-3 ${isFeatureHero || isLandingHero ? "pb-0" : "pt-5"} ${isFixed ? "pb-3" : "pb-0"}`}
+          className={`mx-auto flex max-w-[1320px] items-center justify-between px-4 pt-3 ${isFeatureHero || isLandingHero ? "pb-3" : "pt-5"} ${isFixed ? "pb-3" : "pb-0"}`}
         >
           {/* === Brand Logo === */}
           <Link

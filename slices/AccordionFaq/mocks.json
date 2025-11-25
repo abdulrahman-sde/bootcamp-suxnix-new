@@ -1,0 +1,139 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"latest_new_eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "traffic",
+				"type": "Text"
+			},
+			"latest_new_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "experiment",
+				"type": "Text"
+			},
+			"news": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+										"width": 4000,
+										"height": 4000
+									},
+									"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+									"width": 4000,
+									"height": 4000,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "prove",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"tips_and_tricks",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "different",
+									"type": "Text"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "parts",
+									"type": "Text"
+								}
+							],
+							[
+								"post_by",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "particularly",
+									"type": "Text"
+								}
+							],
+							[
+								"days_ago",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "frozen",
+									"type": "Text"
+								}
+							],
+							[
+								"images",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "relationship",
+									"type": "Text"
+								}
+							],
+							[
+								"viewers",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "say",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"faq_eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "asleep",
+				"type": "Text"
+			},
+			"faq_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "plant",
+				"type": "Text"
+			},
+			"faqs": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "together",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "silver",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
